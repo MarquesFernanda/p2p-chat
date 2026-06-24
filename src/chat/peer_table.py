@@ -179,7 +179,7 @@ class PeerTable:
     def remove(self, peer_id: str) -> None:
         self._by_id.pop(peer_id, None)
  
-    def __contains__(self, peer_id: str) -> bool:
+    def contains(self, peer_id: str) -> bool: #deixei público para usar em peer_connection
         return peer_id in self._by_id
  
     def __len__(self) -> int:

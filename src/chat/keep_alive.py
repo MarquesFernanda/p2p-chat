@@ -33,7 +33,7 @@ class KeepAlive:
                 pass
         self.logger.info(f"[KeepAlive] Quitted (interval={self.interval_s}s)")
 
-    async def _pingpong_loop(self):
+    async def _pingpong_loop(self): #rotina que faz a chamada de envio de PING's em um determinado intervalo de tempo
         while self._running:
             try:
                 await self.send_ping()
@@ -45,7 +45,7 @@ class KeepAlive:
 
     
     async def send_ping(self):
-        for peer_id, connection in list(self.peer_server.items()): #TROCAR QUANDO IMPLEMENTADO
+        for peer_id, connection in list(self.peer_server.connections.items()): 
             msg_id = str(uuid.uuid4())
             timestamp = (                    #define formato do tempo inserido em timestamp
                 datetime.now(timezone.utc)
@@ -54,7 +54,7 @@ class KeepAlive:
                 .replace("+00:00", "Z")
             )
 
-            msg = {
+            ping_msg = {
                 "type": "PING",
                 "msg_id": msg_id, #"uuid"
                 "timestamp": timestamp, #usar time()
@@ -64,7 +64,8 @@ class KeepAlive:
             try:
                 start_time = time.monotonic()
                 self.pending_pings[msg_id] = start_time
-                await self.peer_server._send_json(connection.writer, msg) #TROCAR QUANDO IMPLEMENTADO
+                connection.last_ping_ts = start_time #atualiza o ConnectionInfo em peer_connection
+                await self.peer_server._send_json(connection.writer, ping_msg)
 
                 self.logger.info(f"[KeepAlive] Ping sent to peer {peer_id}")
 
@@ -92,6 +93,7 @@ class KeepAlive:
         
             rtt = (time.monotonic() - start_time) * 1000 
             self.peer_table.update_rtt(peer_id, rtt) # SINCRONIZAÇÃO: atualiza a PeerTable global
+            self.peer_server.connections[peer_id].rtt_ms = rtt #atualiza o rtt em connections de peer_connections também
 
             self.logger.debug(f"[KeepAlive] PONG received from {peer_id} | RTT: {rtt:.1f}ms")
 
