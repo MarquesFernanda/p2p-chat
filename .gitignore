@@ -23,7 +23,9 @@ wheels/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
+.venv/
 *.egg
+.idea
 MANIFEST
 
 # PyInstaller
