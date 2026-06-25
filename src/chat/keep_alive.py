@@ -65,7 +65,7 @@ class KeepAlive:
                 start_time = time.monotonic()
                 self.pending_pings[msg_id] = start_time
                 connection.last_ping_ts = start_time #atualiza o ConnectionInfo em peer_connection
-                await self.peer_server._send_json(connection.writer, ping_msg)
+                await self.peer_server.send_json(connection.writer, ping_msg)
 
                 self.logger.info(f"[KeepAlive] Ping sent to peer {peer_id}")
 
