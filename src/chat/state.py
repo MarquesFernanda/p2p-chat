@@ -25,7 +25,11 @@ class State:
 
     
     
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/aluno3
     def peers(self, namespace: Optional[str] = None):
         if not namespace:
             return {ns: list(lst) for ns, lst in self._peers_by_ns.items()}
@@ -69,4 +73,9 @@ class State:
             if key not in seen:
                 seen.add(key)
                 out.append(p)
+<<<<<<< HEAD
         return out
+=======
+        return out
+    
+>>>>>>> origin/aluno3
