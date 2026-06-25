@@ -14,9 +14,9 @@ MAX_MSG_SIZE = 32768 #tamanho máximo de msg em bytes
 class ConnectionInfo: #stores connection data
 
     peer_id: str
-    reader = asyncio.StreamReader
-    writer = asyncio.StreamWriter
-    direction = str
+    reader: asyncio.StreamReader
+    writer: asyncio.StreamWriter
+    direction: str
     features: Set[str] = set()
     last_ping_ts: Optional[float] = None
     rtt_ms: Optional[float] = None
@@ -46,13 +46,65 @@ class PeerServer:
     async def start(self):
 
         self.logger.info(f"[PeerServer] Escutando em: {self.host}:{self.port}")
-        self._server = await asyncio.start_server(self.accept_new_reader, self.host, self.port)
+        self._server = await asyncio.start_server(self.accept_new_peer, self.host, self.port)
         self._running = True
 
 
-    async def stop(self):
+    async def stop(self, timeout: float):
 
+        self._running = False
+        #close server
+        if self._server:
+            self._server.close()
+            await self._server.wait_closed()
+            self.logger.info("[PeerServer] server fechado.")
+
+        #cancela todos _handle_peer_msgs
+        if hasattr(self, "set_for_tasks"):
+            for task in list(self.set_for_tasks):
+                task.cancel()
+                try:
+                    await task
+                except asyncio.CancelledError:
+                    pass
         
+        self.logger.info("[PeerServer] Tasks de mensagens canceladas.")
+
+        #send bye to all connected peers
+        for remote_peer_id, connection in list(self.connections.items()):
+            try:
+                msg_id = str(uuid.uuid4())
+                bye_msg = {
+                    "type": "BYE",
+                    "msg_id": msg_id,
+                    "src": self.my_id,
+                    "dst": remote_peer_id,
+                    "reason": "Encerrando aplicação",
+                    "ttl": 1
+                }
+                await self.send_json(connection.writer, bye_msg)
+            
+                #se for outbound, tenta ler o BYE_OK com um timeout curto
+                if connection.direction == "outbound":
+                    try:
+                        await asyncio.wait_for(connection.reader.readline(), timeout)
+                    except asyncio.TimeoutError:
+                        pass
+
+            except Exception as e:
+                self.logger.warning(f"Erro ao enviar BYE para {remote_peer_id}: {e}")
+
+            #fechar todas conexões in connections
+            try:
+                connection.writer.close()
+                await connection.writer.wait_closed()
+            except Exception:
+                pass
+
+        self.connections.clear()
+        self.logger.info("[PeerServer] Parado com sucesso.")
+
+
     async def accept_new_peer(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter): #handles inbound connections 
         handshake_success = False
         remote_peer_id = None
@@ -93,10 +145,11 @@ class PeerServer:
                 if not self.peer_table.contains(remote_peer_id):  #verifica se peer está registrado na peertable, se não, o registra via upsert_rdv
                     self.logger.info(f"[PeerServer] {remote_peer_id} ainda não conhecido. Registrando via handshake...")
                     ip, port = writer.get_extra_info("peername")
+                    name = remote_peer_id.split('@')[0]
                     namespace = remote_peer_id.split('@')[1]
 
                     self.peer_table.upsert_from_rdv(
-                        peer_id=remote_peer_id,
+                        name=name,
                         ip=ip,
                         port=port,
                         namespace=namespace
@@ -114,7 +167,7 @@ class PeerServer:
 
                 task = asyncio.create_task(self._handle_peer_messages(remote_peer_id, reader, writer))
                 self._set_for_tasks.add(task)
-                task.add_done_callback(lambda task: self._tasks.discard(task))
+                task.add_done_callback(lambda task: self._set_for_tasks.discard(task))
 
                 handshake_success = True
                 self.logger.info(f"[PeerServer] Handshake concluído com {remote_peer_id}")
@@ -165,7 +218,16 @@ class PeerServer:
 
             await self.send_json(writer, hello_msg)
             raw_data = await asyncio.wait_for(reader.readline(), timeout) 
-            msg = self._conversao_de_raw_data(raw_data)
+
+            if not raw_data: 
+                self.logger.warning(f"[PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK")
+                return False
+            
+            elif len(raw_data) > MAX_MSG_SIZE:
+                self.logger.warning(f"[PeerServer] Mensagem grande demais para ser HELLO_OK")
+                return False
+
+            msg = json.loads(raw_data.decode("utf-8").strip())
 
             if msg.get('type') == 'HELLO_OK':
                 features = set(msg.get("features", []))
@@ -177,9 +239,11 @@ class PeerServer:
                     features=features
                     )
                 
+                self.peer_table.on_connection_established(remote_peer_id, "outbound") 
+                
                 task = asyncio.create_task(self._handle_peer_messages(remote_peer_id, reader, writer))
                 self._set_for_tasks.add(task)
-                task.add_done_callback(lambda task: self._tasks.discard(task))     
+                task.add_done_callback(lambda task: self._set_for_tasks.discard(task))     
 
             else:
                 raise RuntimeError(f"Handshake falhou: esperado HELLO_OK, recebido {msg.get('type')}")
@@ -188,7 +252,7 @@ class PeerServer:
             return True
 
         except Exception as e:
-            self.logger.warning(f"[PeerServer] Falha ao solicitar conexão com {peer_id}: {e}")
+            self.logger.warning(f"[PeerServer] Falha ao solicitar conexão com {remote_peer_id}: {e}")
             return False
         finally:
             self._dialing.remove(remote_peer_id)
@@ -197,7 +261,7 @@ class PeerServer:
 
     async def _handle_peer_messages(self, remote_peer_id : str, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
         try:
-            while self.running:
+            while self._running:
                 raw_data = await reader.readline()
 
                 if not raw_data: #retorna caso conexão fechada abruptamente
@@ -237,7 +301,7 @@ class PeerServer:
                     keep_alive = getattr(self, "keep_alive", None) #segurança em atribuição tardia
 
                     if connection and last_ping_ts and keep_alive:
-                        await self.keepalive.wake_pong(msg_id) #executa todo o cálculo de rtt em keepalive
+                        await self.keep_alive.wake_pong(msg_id) #executa todo o cálculo de rtt em keepalive
 
                 elif msg.get('type') == 'SEND':
                     payload = msg.get('payload')
@@ -363,7 +427,7 @@ class PeerServer:
         await writer.drain() #drain() garante que dados são enviados de acordo com a disponibilidade da rede
 
 
-    async def _register_connections(self, remote_peer_id: str, reader, writer, direction, features, last_ping_ts, rtt_ms):
+    def _register_connections(self, remote_peer_id: str, reader, writer, direction, features, last_ping_ts, rtt_ms):
         nova_conexao = ConnectionInfo(
                     peer_id = remote_peer_id,
                     reader = reader,
@@ -375,16 +439,3 @@ class PeerServer:
                 )  
         
         self.connections[remote_peer_id] = nova_conexao 
-
-    async def _conversao_de_raw_data(self, raw_data):
-            
-            if not raw_data: 
-                self.logger.warning(f"[PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK")
-                return False
-            
-            elif len(raw_data) > MAX_MSG_SIZE:
-                self.logger.warning(f"[PeerServer] Mensagem grande demais para ser HELLO_OK")
-                return False
-
-            return json.loads(raw_data.decode("utf-8").strip())
-  
