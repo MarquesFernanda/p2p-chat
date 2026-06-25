@@ -25,7 +25,7 @@ class State:
 
     
     
-
+    
     def peers(self, namespace: Optional[str] = None):
         if not namespace:
             return {ns: list(lst) for ns, lst in self._peers_by_ns.items()}
@@ -70,3 +70,4 @@ class State:
                 seen.add(key)
                 out.append(p)
         return out
+    

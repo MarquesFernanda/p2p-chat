@@ -108,3 +108,4 @@ class RendezvousConnection:
                 await writer.wait_closed()
             except Exception:
                 pass
+            
