@@ -6,7 +6,7 @@ from typing import Dict, Optional, Set
 def log_config(file_level: str = 'DEBUG', file: Optional[str] = None):
 
     logger_pai = logging.getLogger()
-    logger_pai.setLevel(logging.DEBUG) #bota como nível mínimo debug sempre
+    logger_pai.setLevel(file_level) #bota como nível mínimo debug sempre
 
     #limpa todos Handlers caso haja algum de configurações anteriores
     if logger_pai.hasHandlers():

@@ -32,7 +32,7 @@ class PeerServer:
         self.features = features
         self.autonomous_mode = autonomous_mode or False
 
-        self.router = None #inicia assim e será conectado por self.peer_server.router = self.router
+        self.router = None #inicia assim e será conectado por self.peer_server.router = self.router 
         self.keep_alive = None 
 
         self._server = None # Guardará a instância do servidor asyncio
