@@ -77,9 +77,10 @@ class MessageRouter:
                         if conn.namespace == namespace:
                             sent += 1
                             await self.peer_server.send_json(writer, msg)
+                    else:
+                        await self.peer_server.send_json(writer, msg)
 
-                        self.logger.info(f"[Router] Publicado na sala #{namespace}, enviados: {sent}, falhos: {failed}\nMensagem: {message}")
-
+                self.logger.info(f"[Router] Publicado na sala #{namespace}, enviados: {sent}, falhos: {failed}\nMensagem: {message}")
 
         if require_ack:
             try:
