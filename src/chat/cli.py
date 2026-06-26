@@ -22,6 +22,7 @@ class CLI:
             cmd = cmd.split()
             com = cmd.pop(0)
 
+<<<<<<< HEAD
             match com:
                 case '/help':
                     self.logger.info('[CLI] Comandos disponíveis:')
@@ -38,6 +39,13 @@ class CLI:
 
 <<<<<<< HEAD
             elif cmd[0] == '\peers':
+=======
+            if cmd[0] in ('/quit', '/q'):
+                self.logger.info("[CLI] Quitting...")
+                break
+
+            elif cmd[0] == '/peers':
+>>>>>>> origin/aluno3
 
                 if len(cmd) == 1 or cmd[1] == '*':
                     self.logger.info("[CLI] Listando todos os peers:")
@@ -53,12 +61,12 @@ class CLI:
                         self.logger.info(f"[CLI] {peer_id}")
 
                 else:
-                    self.logger.info("[CLI] Error in cmd \peers")
+                    self.logger.info("[CLI] Erro em /peers")
 
-            elif cmd[0] in ('\msg', '\m'):
+            elif cmd[0] in ('/msg', '/m'):
 
                 if len(cmd) != 3:
-                    self.logger.info(f"[CLI] Parâmetros errads para \msg")
+                    self.logger.info(f"[CLI] Parâmetros errads para /msg")
                 else:
                     peer_id = cmd[1]
                     payload = cmd[2]
@@ -68,10 +76,10 @@ class CLI:
                     else:
                         self.logger.info(f"[CLI] {peer_id} não está na peer table")
 
-            elif cmd[0] == '\pub':
+            elif cmd[0] == '/pub':
 
                 if len(cmd) != 3:
-                    self.logger.info(f"[CLI] Parâmetros errados para \pub")
+                    self.logger.info(f"[CLI] Parâmetros errados para /pub")
                 else:
                     region = cmd[1]
                     payload = cmd[2]  
@@ -87,7 +95,25 @@ class CLI:
                             self.logger.info(f"[CLI] Mensagem enviada para peers em namespace: {region}")
 
 
-            elif cmd[0] == r'\rtt':
+            elif cmd[0] == "/log":
+
+                if len(cmd) == 2:
+                    level = cmd[1].upper()
+                    
+                    # 2. Valida se o nível informado é suportado pelo Python logging
+                    if level not in {"DEBUG", "INFO", "WARNING", "ERROR"}:
+                        self.logger.info("[CLI] Nível inválido. Use: DEBUG, INFO, WARNING ou ERROR")
+                    
+                    else: 
+                        logging.getLogger().setLevel(getattr(logging, level))
+                        self.logger.setLevel(getattr(logging, level))
+                        
+                        self.logger.info(f"[CLI] Nível de log ajustado para {level}")
+                
+                else:
+                    self.logger.info("[CLI] Parâmetros errados para /log")
+
+            elif cmd[0] == '/rtt':
                 self.logger.info("[CLI] rtt's dos peers requeridos:")
 
                 if len(cmd) == 1:  #checa se quer tabela geral de todos rtts
