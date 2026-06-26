@@ -108,8 +108,13 @@ class RendezvousConnection:
                 await writer.wait_closed()
             except Exception:
 <<<<<<< HEAD
+<<<<<<< HEAD
                 pass
 =======
                 pass
             
 >>>>>>> origin/aluno3
+=======
+                pass
+            
+>>>>>>> origin/aluno2
