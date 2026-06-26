@@ -2,80 +2,77 @@ import logging
 from typing import Dict, List, Any, Optional
 
 class State:
+    def __init__(self, logger: Optional[logging.Logger] = None):
+        self.log = logger or logging.getLogger(__name__)
+        self.my_username: Optional[str] = None
+        self.my_room: Optional[str] = None
+        
+        #ista de peers
+        self.registry: Dict[str, List[dict]] = {}
 
-    def __init__(self, logger: logging.Logger | None = None):
-        self._name = None
-        self._namespace = None
-
-        #lista de dicts de peers formato do discover
-        self._peers_by_ns: Dict[str, List[dict]] = {}
-        self.logger = logger or logging.getLogger(__name__)
-
-    
-
-    def set_identity(self, name: str, namespace: str):
-        self._name = name
-        self._namespace = namespace
+    def set_identity(self, name: str, namespace: str) -> None:
+        self.my_username = name
+        self.my_room = namespace
+        self.log.info(f"[State] Identidade local configurada {self.peer_id()}")
 
     def peer_id(self) -> str:
-        return f"{self._name}@{self._namespace}"
-
+        if self.my_username and self.my_room:
+            return f"{self.my_username}@{self.my_room}"
+        return "anonimo@desconhecido"
+        
     def namespace(self) -> Optional[str]:
-        return self._namespace
-
-    
-    
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/aluno3
-    def peers(self, namespace: Optional[str] = None):
-        if not namespace:
-            return {ns: list(lst) for ns, lst in self._peers_by_ns.items()}
-
-        ns = (namespace or "*").strip() or "*"
-        return list(self._peers_by_ns.get(ns, []))
-
+        return self.my_room
+        
+    def peers(self, namespace: Optional[str] = None) -> Any:
+        if namespace is not None:
+            return self.registry.get(namespace, [])
+        return self.registry
+        
     def namespaces(self) -> List[str]:
-        return sorted(self._peers_by_ns.keys())
-
+        return list(self.registry.keys())
+        
     def find_peer(self, name: str, namespace: Optional[str] = None) -> Optional[dict]:
-        ns = (namespace or "*").strip() or "*"
-        for p in self._peers_by_ns.get(ns, []):
-            if p.get("name") == name:
-                return p
+        if namespace is not None:
+            for node in self.registry.get(namespace, []):
+                if node.get("name") == name:
+                    return node
+        else:
+            for room_nodes in self.registry.values():
+                for node in room_nodes:
+                    if node.get("name") == name:
+                        return node
         return None
-
+        
     def update_namespace_peers(self, namespace: str, peers: list[dict]) -> None:
-        ns = (namespace or "*").strip() or "*"
-        clean = [p for p in peers if isinstance(p, dict)]
-        self._peers_by_ns[ns] = self._dedup(clean)
-        self.logger.debug(f"[State] Set peers for #{ns}: {len(self._peers_by_ns[ns])} item(s)")
-
+        self.registry[namespace] = self._clean_and_filter(peers)
+        self.log.debug(f"[State] Sala '{namespace}' atualizada. Total de peers ativos: {len(self.registry[namespace])}")
+        
     def update_bulk(self, peers: list[dict]) -> None:
-        grouped: Dict[str, List[dict]] = {}
+        segregated_data: Dict[str, List[dict]] = {}
+        
         for p in peers:
-            if not isinstance(p, dict):
+            target_room = p.get("namespace") or self.my_room or "default"
+            if target_room not in segregated_data:
+                segregated_data[target_room] = []
+            segregated_data[target_room].append(p)
+            
+        for room, node_list in segregated_data.items():
+            self.registry[room] = self._clean_and_filter(node_list)
+        
+    def _clean_and_filter(self, raw_peers: list[dict]) -> list[dict]:
+        processed_keys = set()
+        cleaned_list = []
+        
+        for node in raw_peers:
+            node_name = node.get("name")
+            node_room = node.get("namespace") or self.my_room
+            
+            if node_name == self.my_username and node_room == self.my_room:
                 continue
-
-            ns = (p.get("namespace") or "*").strip() or "*"
-            grouped.setdefault(ns, []).append(p)
-
-        for ns, lst in grouped.items():
-            self.update_namespace_peers(ns, lst)
-
-    def _dedup(self, peers: list[dict]) -> list[dict]:
-        seen = set()
-        out: list[dict] = []
-        for p in peers:
-            key = (p.get("name"), p.get("ip"), p.get("port")), p.get("namespace")
-            if key not in seen:
-                seen.add(key)
-                out.append(p)
-<<<<<<< HEAD
-        return out
-=======
-        return out
-    
->>>>>>> origin/aluno3
+                
+            unique_signature = (node_name, node_room)
+            if unique_signature not in processed_keys:
+                processed_keys.add(unique_signature)
+                cleaned_list.append(node)
+                
+        return cleaned_list
