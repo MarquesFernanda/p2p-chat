@@ -16,7 +16,7 @@ from state import State
 
 
 @dataclass
-class ConfiguraçõesJson:
+class ConfiguracoesJson:
     app_name: str
     rdv_host: str
     rdv_port: int
@@ -36,7 +36,7 @@ class ConfiguraçõesJson:
 
 class p2pChatApp:
 
-    def __init__(self, config: ConfiguraçõesJson, logger: logging.Logger):
+    def __init__(self, config: ConfiguracoesJson, logger: logging.Logger):
         self.config = config
         self.logger = logger
 
@@ -67,12 +67,18 @@ class p2pChatApp:
             peer_table=self.peer_table
         )
 
+        #atribuição tardia necessária
+        self.peer_server.keep_alive = self.keep_alive
+
         self.router = MessageRouter(
             state=self.state,
             peer_server=self.peer_server,
             logger=self.logger,
             ttl=1
         )
+
+        #atribuição tardia necessária
+        self.peer_server.router = self.router
 
         self.rendezvous = RendezvousConnection(
             host=self.config.rdv_host,

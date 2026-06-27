@@ -47,3 +47,5 @@ def log_config(self, app: str, file_level: str = 'DEBUG', file: Optional[str] = 
         logger_pai.info("[P2P] Todos logs serão impressos no terminal")
 
     return logging.getLogger(app)
+
+    return logging.getLogger(app)
