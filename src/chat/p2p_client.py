@@ -112,7 +112,7 @@ class p2pChatApp:
         await self.keep_alive.start()
         await self.router.start()
 
-        self.logger.info("[P2P] Aplicação iniciada com sucesso.")
+        self.logger.info("Aplicação iniciada com sucesso.")
 
     
     async def run(self) -> int:
@@ -138,14 +138,14 @@ class p2pChatApp:
                 task.cancel()
             await asyncio.gather(*self._tasks, return_exceptions=True)
             self._tasks.clear()
-            # CORREÇÃO 5 (continuação): shutdown agora é sempre chamado ao sair
+
             await self.shutdown()
 
         return 0
 
     async def shutdown(self) -> None:
 
-        self.logger.info("[P2P] Iniciando shutdown...")
+        self.logger.info("Iniciando shutdown...")
         self._running = False
 
         await self.keep_alive.stop()
@@ -153,7 +153,7 @@ class p2pChatApp:
         await self.peer_server.stop(timeout=2.0)
         await self._unregister_rdv()
 
-        self.logger.info("[P2P] Shutdown concluído.")
+        self.logger.info("shutdown concluído.")
 
     async def _register_rdv(self) -> None:
         try:
@@ -164,12 +164,12 @@ class p2pChatApp:
                 ttl=self.config.rdv_ttl,
             )
             self.logger.info(
-                f"[P2P] Registrado no Rendezvous como "
+                f"registrado no Rendezvous como "
                 f"{self.config.name}@{self.config.namespace} "
                 f"(IP externo: {resp.get('ip')}, TTL: {resp.get('ttl')}s)"
             )
         except Exception as e:
-            self.logger.error(f"[P2P] Falha ao registrar no rendezvous: {e}")
+            self.logger.error(f"Falha ao registrar no rendezvous: {e}")
 
     async def _unregister_rdv(self) -> None:
         try:
@@ -178,9 +178,9 @@ class p2pChatApp:
                 name=self.config.name,
                 port=self.config.listen_port,
             )
-            self.logger.info("[P2P] Registro removido do rendezvous.")
+            self.logger.info("Registro removido do rendezvous.")
         except Exception as e:
-            self.logger.warning(f"[P2P] Falha no unregister: {e}")
+            self.logger.warning(f"Falha no unregister: {e}")
 
     async def _discover_and_update(self) -> None:
 
@@ -216,11 +216,11 @@ class p2pChatApp:
             self.peer_table.mark_stale_if_missing(vistos_agora)
 
             self.logger.debug(
-                f"[P2P] DISCOVER: {len(peers)} peer(s) no namespace '{self.config.namespace}'"
+                f"DISCOVER: {len(peers)} peers no namespace '{self.config.namespace}'"
             )
 
         except Exception as e:
-            self.logger.warning(f"[P2P] Erro no discover: {e}")
+            self.logger.warning(f"Erro no discover: {e}")
 
     async def _reconnect_peers(self) -> None:
 
@@ -229,7 +229,7 @@ class p2pChatApp:
         if not candidatos:
             return
 
-        self.logger.debug(f"[P2P] Tentando reconectar {len(candidatos)} peer(s)...")
+        self.logger.debug(f"Tentando reconectar {len(candidatos)} peers")
 
         tarefas = [self._connect_one_peer(rec) for rec in candidatos]
         await asyncio.gather(*tarefas, return_exceptions=True)
@@ -252,15 +252,15 @@ class p2pChatApp:
                 peer_id, error="Falha no handshake TCP"
             )
             self.logger.debug(
-                f"[P2P] Conexão com {peer_id} falhou. "
+                f"Conexão com {peer_id} falhou. "
                 f"Tentativas: {rec.attempts}/{self.peer_table.max_attempts}"
             )
         else:
-            self.logger.info(f"[P2P] Conectado a {peer_id}")
+            self.logger.info(f"Conectado a {peer_id}")
 
     async def _discover_loop(self) -> None:
         self.logger.info(
-            f"[P2P] Discover loop iniciado (intervalo={self.config.discover_interval}s)"
+            f"Discover loop iniciado (intervalo={self.config.discover_interval}s)"
         )
         while self._running:
             try:
@@ -275,9 +275,9 @@ class p2pChatApp:
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                self.logger.error(f"[P2P] Erro no discover loop: {e}")
+                self.logger.error(f"Erro no discover loop: {e}")
 
-        self.logger.debug("[P2P] Discover loop encerrado.")
+        self.logger.debug("Discover loop encerrado.")
 
     async def _reconnect_loop(self) -> None:
 
@@ -293,14 +293,14 @@ class p2pChatApp:
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                self.logger.error(f"[P2P] Erro no reconnect loop: {e}")
+                self.logger.error(f"Erro no reconnect loop: {e}")
 
-        self.logger.debug("[P2P] Reconnect loop encerrado.")
+        self.logger.debug("Reconnect loop encerrado.")
 
     async def _rdv_refresh_loop(self) -> None:
         refresh_interval = max(60, self.config.rdv_ttl // 2)
         self.logger.info(
-            f"[P2P] RDV refresh loop iniciado (intervalo={refresh_interval}s)"
+            f"RDV refresh loop iniciado (intervalo={refresh_interval}s)"
         )
         while self._running:
             try:
@@ -314,11 +314,11 @@ class p2pChatApp:
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                self.logger.error(f"[P2P] Erro no rdv refresh loop: {e}")
+                self.logger.error(f"Erro no rdv refresh loop: {e}")
 
-        self.logger.debug("[P2P] RDV refresh loop encerrado.")
+        self.logger.debug("RDV refresh loop encerrado.")
 
     async def reconcile_after_discover(self) -> None:
-        self.logger.info("[P2P] Reconciliação forçada pelo Router...")
+        self.logger.info("Reconciliação forçada pelo Router")
         await self._discover_and_update()
         await self._reconnect_peers()

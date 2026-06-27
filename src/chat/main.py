@@ -3,7 +3,7 @@ import json
 import logging
 from typing import Dict, Optional, Set
 
-def log_config(file_level: str = 'DEBUG', file: Optional[str] = None):
+def log_config(self, app: str, file_level: str = 'DEBUG', file: Optional[str] = None):
 
     logger_pai = logging.getLogger()
     logger_pai.setLevel(file_level) #bota como nível mínimo debug sempre
@@ -19,8 +19,7 @@ def log_config(file_level: str = 'DEBUG', file: Optional[str] = None):
             datefmt="%Y-%m-%dT%H:%M:%S",
         ) #define formato de mensagens
 
-        if file_level != 'DEBUG':
-            file_handler.setLevel(file_level)
+        file_handler.setLevel(file_level)
 
         file_handler.setFormatter(file_handler_formatter) #define file handler
         logger_pai.addHandler(file_handler)
@@ -46,3 +45,5 @@ def log_config(file_level: str = 'DEBUG', file: Optional[str] = None):
             datefmt="%Y-%m-%dT%H:%M:%S",
         )
         logger_pai.info("[P2P] Todos logs serão impressos no terminal")
+
+    return logging.getLogger(app)
