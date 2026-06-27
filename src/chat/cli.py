@@ -8,7 +8,7 @@ class CLI:
     def _init_(self, peer_server, peer_table, router, logger: logging.Logger | None = None):
         self.peer_server = peer_server
         self.peer_table = peer_table 
-        self.logger = logger or logging.getLogger(_name_)
+        self.logger = logger or logging.getLogger(__name__)
         self.router = router
 
     async def run(self):
@@ -144,4 +144,3 @@ class CLI:
                     self.logger.info("[CLI] Sucesso em reconexão")
                 except Exception as e:
                     self.logger.warning(f"[CLI] Erro em reconexão: {e}")
-                    
