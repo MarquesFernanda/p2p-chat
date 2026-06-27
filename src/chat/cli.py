@@ -5,7 +5,7 @@ from peer_table import ConnectionState
 
 class CLI:
 
-    def _init_(self, peer_server, peer_table, router, logger: logging.Logger | None = None):
+    def __init__(self, peer_server, peer_table, router, logger: logging.Logger | None = None):
         self.peer_server = peer_server
         self.peer_table = peer_table 
         self.logger = logger or logging.getLogger(__name__)
