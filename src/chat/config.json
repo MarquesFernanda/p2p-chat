@@ -1,0 +1,17 @@
+{
+  "app_name": "pyp2p-chat",
+  "rdv_host": "pyp2p.mfcaetano.cc",
+  "rdv_port": 8080,
+  "listen_host": "0.0.0.0",
+  "listen_port": 8081,
+  "discover_interval": 20,
+  "keepalive_interval": 30,
+  "rdv_ttl": 7200,
+  "fixed_msg_ttl": 1,
+  "namespace": "CIC",
+  "name": "debian",
+  "log_level": "INFO",
+  "features": ["ack", "metrics"],
+  "autonomous_mode": false,
+  "max_reconnect_attempts": 5
+}
