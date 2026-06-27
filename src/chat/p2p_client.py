@@ -328,4 +328,3 @@ class p2pChatApp:
         self.logger.info("Reconciliação forçada pelo Router")
         await self._discover_and_update()
         await self._reconnect_peers()
-        
