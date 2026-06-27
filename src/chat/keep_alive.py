@@ -77,7 +77,7 @@ class KeepAlive:
     async def wake_pong(self, msg_id: str): #deve ser implementado para quando for recebido um pong, de forma a acordar o manage_pong
         event = self._ping_events.get(msg_id)
         if event: #executa apenas se foi criado um evento para esse msg_id, ou seja, foi executado manage_pong e está sendo esperado um pong
-            event.set() # Acorda o manage_pong que está esperando [1]
+            event.set() # Acorda o manage_pong que está esperando
             self.logger.debug(f"[KeepAlive] Event set for msg_id {msg_id}")
         else:
             self.logger.debug(f"[KeepAlive] No PING with this msg_id: {msg_id}")
