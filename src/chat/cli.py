@@ -5,10 +5,10 @@ from peer_table import ConnectionState
 
 class CLI:
 
-    def __init__(self, peer_server, peer_table, router, logger: logging.Logger | None = None):
+    def _init_(self, peer_server, peer_table, router, logger: logging.Logger | None = None):
         self.peer_server = peer_server
         self.peer_table = peer_table 
-        self.logger = logger or logging.getLogger(__name__)
+        self.logger = logger or logging.getLogger(_name_)
         self.router = router
 
     async def run(self):
@@ -121,4 +121,27 @@ class CLI:
 
                     else:
                         self.logger.info(f"[CLI] Peer {peer_id} not found in the table.")
-                        
+
+            elif cmd[0] == '/conn':
+                self.logger.info("[CLI] Conexões ativas:")
+
+                inbound_peers = []
+                outbound_peers = []
+
+                for peer_id, connection in list(self.peer_server.connections.items()):
+                    if connection.direction == 'inbound':
+                        inbound_peers.append(peer_id)
+                    elif connection.direction == 'outbound':
+                        outbound_peers.append(peer_id)
+
+                self.logger.info(f"[CLI] Conexões de Entrada (Inbound): {', '.join(inbound_peers) if inbound_peers else 'Nenhuma'}")
+                self.logger.info(f"[CLI] Conexões de Saída (Outbound): {', '.join(outbound_peers) if outbound_peers else 'Nenhuma'}")
+
+            elif cmd[0] == '/reconnect':
+                self.logger.info("[CLI] Tentativa de reconexão com peers")
+                try:
+                    await self.router.trigger_reconcile()
+                    self.logger.info("[CLI] Sucesso em reconexão")
+                except Exception as e:
+                    self.logger.warning(f"[CLI] Erro em reconexão: {e}")
+                    
