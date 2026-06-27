@@ -4,6 +4,7 @@ import logging
 from pathlib import Path
 import json
 from typing import Any
+from typing import Any, Dict, Optional
 
 
 def merging(config: Dict[str, Any], cli: Dict[str, Any]):
@@ -85,7 +86,7 @@ def get_config_args() -> argparse.ArgumentParser:
 
     return conf
 
-def initializer():
+async def initializer():
     args = vars(get_config_args().parse_args())
     ldfile = loadfile(args.get('config'))
     logger = logging.getLogger('peer-to-peer chat')
@@ -117,15 +118,15 @@ def initializer():
     end_merge.setdefault("log_level", "INFO")
     end_merge.setdefault("autonomous_mode", True)
 
-    _validate_settings(merged)
+    _validate_settings(end_merge)
     logger = _setup_logger(
-        merged["log_level"],
-        merged["app_name"],
+        end_merge["log_level"],
+        end_merge["app_name"],
         args.get("log_file"),
         args.get("no_log_file", False)
     )
 
-    app = P2PChatApp(Settings.from_dict(merged), logger)
+    app = P2PChatApp(Settings.from_dict(end_merge), logger)
 
     try:
         return await app.run()
