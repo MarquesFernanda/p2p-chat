@@ -87,7 +87,7 @@ class PeerServer:
                 #se for outbound, tenta ler o BYE_OK com um timeout curto
                 if connection.direction == "outbound":
                     try:
-                        await asyncio.wait_for(connection.reader.readline(), timeout)
+                        await asyncio.wait_for(connection.reader.readline(), timeout= timeout)
                     except asyncio.TimeoutError:
                         pass
 
@@ -201,11 +201,11 @@ class PeerServer:
 
         try:
 
-            self.logger.info(f"[PeerServer] Tentando conectar a {remote_peer_id} em {ip}:{port}...")
+            self.logger.debug(f"[PeerServer] Tentando conectar a {remote_peer_id} em {ip}:{port}...")
 
             reader, writer = await asyncio.wait_for(
                 asyncio.open_connection(ip, port), 
-                timeout=timeout
+                timeout= timeout
             )
 
             hello_msg = {
@@ -217,7 +217,7 @@ class PeerServer:
             } 
 
             await self.send_json(writer, hello_msg)
-            raw_data = await asyncio.wait_for(reader.readline(), timeout) 
+            raw_data = await asyncio.wait_for(reader.readline(), timeout=5) 
 
             if not raw_data: 
                 self.logger.warning(f"[PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK")
@@ -252,7 +252,7 @@ class PeerServer:
             return True
 
         except Exception as e:
-            self.logger.warning(f"[PeerServer] Falha ao solicitar conexão com {remote_peer_id}: {e}")
+            self.logger.debug(f"[PeerServer] Falha ao solicitar conexão com {remote_peer_id}: {e}")
             return False
         finally:
             self._dialing.remove(remote_peer_id)
