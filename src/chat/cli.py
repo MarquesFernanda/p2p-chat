@@ -43,33 +43,35 @@ class CLI:
 
             elif cmd[0] in ('/msg', '/m'):
 
-                if len(cmd) != 3:
-                    self.logger.info(f"[CLI] Parâmetros errads para /msg")
+                if len(cmd) < 3:
+                    self.logger.info(f"[CLI] Parâmetros errados para /msg")
                 else:
                     peer_id = cmd[1]
-                    payload = cmd[2]
+                    payload = cmd[2:]
                     if self.peer_table.contains(peer_id):
-                        await self.router.send(peer_id= peer_id, namespace=None, message=payload, mode='SEND', require_ack=True)
+                        mensagem = ' '.join(payload)
+                        await self.router.send(peer_id= peer_id, namespace=None, message=mensagem, mode='SEND', require_ack=True)
                         self.logger.info(f"[CLI] Mensagem enviada para {peer_id}")
                     else:
                         self.logger.info(f"[CLI] {peer_id} não está na peer table")
 
             elif cmd[0] == '/pub':
 
-                if len(cmd) != 3:
+                if len(cmd) < 3:
                     self.logger.info(f"[CLI] Parâmetros errados para /pub")
                 else:
                     region = cmd[1]
-                    payload = cmd[2]  
+                    payload = cmd[2:]  
                     if region == '*':
-                        await self.router.send(peer_id= peer_id, namespace='*', message=payload, mode= 'PUB', require_ack= False)
+                        mensagem = ' '.join(payload)
+                        await self.router.send(namespace='*', message=mensagem, mode= 'PUB', require_ack= False)
                         self.logger.info("[CLI] Mensagem global enviada")
                     else:
                         peers_in_namespace = self.peer_table.in_namespace(region)
                         if peers_in_namespace == []:
                             self.logger.info("[CLI] Namespace vazio ou inexistente, logo nenhuma mensagem enviada")
                         else:
-                            await self.router.send(peer_id= peer_id, namespace=region, message=payload, mode= 'PUB', require_ack= False)
+                            await self.router.send(namespace=region, message=mensagem, mode= 'PUB', require_ack= False)
                             self.logger.info(f"[CLI] Mensagem enviada para peers em namespace: {region}")
 
 
@@ -144,3 +146,6 @@ class CLI:
                     self.logger.info("[CLI] Sucesso em reconexão")
                 except Exception as e:
                     self.logger.warning(f"[CLI] Erro em reconexão: {e}")
+
+            else:
+                self.logger.info("[CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit")
