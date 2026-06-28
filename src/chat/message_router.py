@@ -66,7 +66,7 @@ class MessageRouter:
                 sent = 0
                 failed = 0
 
-                for peer_id, conn in list(self.peer_server.connnections.items()):
+                for peer_id, conn in list(self.peer_server.connections.items()):
                     writer = conn.writer
 
                     if writer.is_closing():
