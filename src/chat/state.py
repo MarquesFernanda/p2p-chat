@@ -1,16 +1,17 @@
 import logging
 from typing import Dict, List, Any, Optional
 
-
 class State:
 
     def __init__(self, logger: logging.Logger | None = None):
         self._name = None
         self._namespace = None
 
-        # lista de dicts de peers formato do discover
+        #lista de dicts de peers formato do discover
         self._peers_by_ns: Dict[str, List[dict]] = {}
         self.logger = logger or logging.getLogger(__name__)
+
+    
 
     def set_identity(self, name: str, namespace: str):
         self._name = name
@@ -22,6 +23,9 @@ class State:
     def namespace(self) -> Optional[str]:
         return self._namespace
 
+    
+    
+    
     def peers(self, namespace: Optional[str] = None):
         if not namespace:
             return {ns: list(lst) for ns, lst in self._peers_by_ns.items()}
@@ -66,3 +70,4 @@ class State:
                 seen.add(key)
                 out.append(p)
         return out
+    
