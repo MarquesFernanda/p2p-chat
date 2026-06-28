@@ -129,7 +129,7 @@ async def initializer():
     from dataclasses import fields
     # CORREÇÃO 10: Settings não estava importado; a classe correta é ConfiguraçõesJson (de p2p.py)
     # e o import deve acontecer aqui para evitar importação circular
-    from p2p_client import ConfiguraçõesJson as Settings, p2pChatApp
+    from p2p_client import ConfiguracoesJson as Settings, p2pChatApp
 
     allowed = {f.name for f in fields(Settings)}
     unknown = sorted(i for i in end_merge.keys() if i not in allowed)

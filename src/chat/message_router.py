@@ -53,7 +53,7 @@ class MessageRouter:
 
         match opt:
             case 0:
-                conn = self.peer_server.connnections.get(peer_id)
+                conn = self.peer_server.connections.get(peer_id)
 
                 if not conn:
                     self.logger.warning(f"[Router] Sem conexão com o peer {peer_id}")

@@ -222,8 +222,13 @@ class PeerTable:
         rec.direction = "outbound"
         rec.since_state = time.monotonic()
         rec.last_attempt_at = time.monotonic()
+<<<<<<< HEAD
 
         self.logger.info(
+=======
+ 
+        self.logger.debug(
+>>>>>>> 181accc (corrigidos)
             f"[PeerTable] Tentativa {rec.attempts}/{self.max_attempts} de reconexão com {peer_id}"
         )
 
@@ -248,8 +253,13 @@ class PeerTable:
         rec.backoff_until = time.monotonic() + base_delay + jitter
         rec.connection_state = ConnectionState.COOLDOWN
         rec.since_state = time.monotonic()
+<<<<<<< HEAD
 
         self.logger.info(
+=======
+ 
+        self.logger.debug(
+>>>>>>> 181accc (corrigidos)
             f"[PeerTable] {peer_id}: tentativa {rec.attempts}/{self.max_attempts} "
             f"falhou ({error}) -> cooldown de ~{base_delay:.1f}s"
         )

@@ -17,7 +17,7 @@ class ConnectionInfo:  # stores connection data
     reader: asyncio.StreamReader
     writer: asyncio.StreamWriter
     direction: str
-    features: Set[str] = set()
+    features: Set[str] = field(default_factory=set)
     last_ping_ts: Optional[float] = None
     rtt_ms: Optional[float] = None
 
@@ -58,9 +58,15 @@ class PeerServer:
             await self._server.wait_closed()
             self.logger.info("[PeerServer] server fechado.")
 
+<<<<<<< HEAD
         # cancela todos _handle_peer_msgs
         if hasattr(self, "set_for_tasks"):
             for task in list(self.set_for_tasks):
+=======
+        #cancela todos _handle_peer_msgs
+        if hasattr(self, "_set_for_tasks"):
+            for task in list(self._set_for_tasks):
+>>>>>>> 181accc (corrigidos)
                 task.cancel()
                 try:
                     await task
@@ -86,7 +92,7 @@ class PeerServer:
                 # se for outbound, tenta ler o BYE_OK com um timeout curto
                 if connection.direction == "outbound":
                     try:
-                        await asyncio.wait_for(connection.reader.readline(), timeout)
+                        await asyncio.wait_for(connection.reader.readline(), timeout= timeout)
                     except asyncio.TimeoutError:
                         pass
 
@@ -201,11 +207,16 @@ class PeerServer:
 
         try:
 
-            self.logger.info(f"[PeerServer] Tentando conectar a {remote_peer_id} em {ip}:{port}...")
+            self.logger.debug(f"[PeerServer] Tentando conectar a {remote_peer_id} em {ip}:{port}...")
 
             reader, writer = await asyncio.wait_for(
+<<<<<<< HEAD
                 asyncio.open_connection(ip, port),
                 timeout=timeout
+=======
+                asyncio.open_connection(ip, port), 
+                timeout= timeout
+>>>>>>> 181accc (corrigidos)
             )
 
             hello_msg = {
@@ -217,7 +228,11 @@ class PeerServer:
             }
 
             await self.send_json(writer, hello_msg)
+<<<<<<< HEAD
             raw_data = await asyncio.wait_for(reader.readline(), timeout)
+=======
+            raw_data = await asyncio.wait_for(reader.readline(), timeout=5) 
+>>>>>>> 181accc (corrigidos)
 
             if not raw_data:
                 self.logger.warning(f"[PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK")
@@ -252,7 +267,7 @@ class PeerServer:
             return True
 
         except Exception as e:
-            self.logger.warning(f"[PeerServer] Falha ao solicitar conexão com {remote_peer_id}: {e}")
+            self.logger.debug(f"[PeerServer] Falha ao solicitar conexão com {remote_peer_id}: {e}")
             return False
         finally:
             self._dialing.remove(remote_peer_id)
@@ -290,8 +305,13 @@ class PeerServer:
                     }
 
                     await self.send_json(writer, msg_pong)
+<<<<<<< HEAD
                     self.logger.info(f"[PeerServer] Enviando PONG para {remote_peer_id}")
 
+=======
+                    self.logger.debug(f"[PeerServer] Enviando PONG para {remote_peer_id}")  
+                            
+>>>>>>> 181accc (corrigidos)
                 elif msg.get('type') == 'PONG':
                     msg_id = msg.get('msg_id')
                     connection = self.connections.get(remote_peer_id)
@@ -339,10 +359,15 @@ class PeerServer:
                 elif msg.get('type') == 'ACK':
                     msg_id = msg.get('msg_id')
                     router = getattr(self, "router", None)
+<<<<<<< HEAD
 
                     if router and msg_id in router._ack_events:
+=======
+                    
+                    if router and msg_id in router.ack_events:
+>>>>>>> 181accc (corrigidos)
                         # 2. Sinaliza (set) o evento para "acordar" a tarefa que enviou a mensagem
-                        router._ack_events[msg_id].set()
+                        router.ack_events[msg_id].set()
                         self.logger.debug(f"[PeerServer] ACK recebido de {remote_peer_id} para msg {msg_id}")
                     else:
                         # Caso o ACK chegue atrasado (após o timeout de 5s)
@@ -426,8 +451,9 @@ class PeerServer:
         writer.write(encoded_msg)
         await writer.drain()  # drain() garante que dados são enviados de acordo com a disponibilidade da rede
 
-    def _register_connections(self, remote_peer_id: str, reader, writer, direction, features, last_ping_ts, rtt_ms):
+    def _register_connections(self, remote_peer_id: str, reader, writer, direction, features):
         nova_conexao = ConnectionInfo(
+<<<<<<< HEAD
             peer_id=remote_peer_id,
             reader=reader,
             writer=writer,
@@ -438,3 +464,13 @@ class PeerServer:
         )
 
         self.connections[remote_peer_id] = nova_conexao
+=======
+                    peer_id = remote_peer_id,
+                    reader = reader,
+                    writer = writer,
+                    direction = direction,
+                    features = features
+                )  
+        
+        self.connections[remote_peer_id] = nova_conexao 
+>>>>>>> 181accc (corrigidos)
