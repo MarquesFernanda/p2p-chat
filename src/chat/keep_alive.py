@@ -67,7 +67,7 @@ class KeepAlive:
                 connection.last_ping_ts = start_time #atualiza o ConnectionInfo em peer_connection
                 await self.peer_server.send_json(connection.writer, ping_msg)
 
-                self.logger.info(f"[KeepAlive] Ping sent to peer {peer_id}")
+                self.logger.debug(f"[KeepAlive] Ping enviado para {peer_id}")
 
                 asyncio.create_task(self.manage_pong(msg_id, peer_id))
 

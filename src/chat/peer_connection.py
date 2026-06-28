@@ -17,7 +17,7 @@ class ConnectionInfo: #stores connection data
     reader: asyncio.StreamReader
     writer: asyncio.StreamWriter
     direction: str
-    features: Set[str] = set()
+    features: Set[str] = field(default_factory=set)
     last_ping_ts: Optional[float] = None
     rtt_ms: Optional[float] = None
 
@@ -60,8 +60,8 @@ class PeerServer:
             self.logger.info("[PeerServer] server fechado.")
 
         #cancela todos _handle_peer_msgs
-        if hasattr(self, "set_for_tasks"):
-            for task in list(self.set_for_tasks):
+        if hasattr(self, "_set_for_tasks"):
+            for task in list(self._set_for_tasks):
                 task.cancel()
                 try:
                     await task
@@ -291,7 +291,7 @@ class PeerServer:
                         }
                     
                     await self.send_json(writer, msg_pong)
-                    self.logger.info(f"[PeerServer] Enviando PONG para {remote_peer_id}")  
+                    self.logger.debug(f"[PeerServer] Enviando PONG para {remote_peer_id}")  
                             
                 elif msg.get('type') == 'PONG':
                     msg_id = msg.get('msg_id')
@@ -341,9 +341,9 @@ class PeerServer:
                     msg_id = msg.get('msg_id')
                     router = getattr(self, "router", None)
                     
-                    if router and msg_id in router._ack_events:
+                    if router and msg_id in router.ack_events:
                         # 2. Sinaliza (set) o evento para "acordar" a tarefa que enviou a mensagem
-                        router._ack_events[msg_id].set()
+                        router.ack_events[msg_id].set()
                         self.logger.debug(f"[PeerServer] ACK recebido de {remote_peer_id} para msg {msg_id}")
                     else:
                         # Caso o ACK chegue atrasado (após o timeout de 5s)
@@ -427,15 +427,13 @@ class PeerServer:
         await writer.drain() #drain() garante que dados são enviados de acordo com a disponibilidade da rede
 
 
-    def _register_connections(self, remote_peer_id: str, reader, writer, direction, features, last_ping_ts, rtt_ms):
+    def _register_connections(self, remote_peer_id: str, reader, writer, direction, features):
         nova_conexao = ConnectionInfo(
                     peer_id = remote_peer_id,
                     reader = reader,
                     writer = writer,
                     direction = direction,
-                    features = features,
-                    last_ping_ts = last_ping_ts,
-                    rtt_ms = rtt_ms
+                    features = features
                 )  
         
         self.connections[remote_peer_id] = nova_conexao 

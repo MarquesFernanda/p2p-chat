@@ -46,7 +46,7 @@ class p2pChatApp:
         self.peer_table = PeerTable(
             my_name=self.config.name,
             my_namespace=self.config.namespace,
-            max_attempts=self.config.max_reconnect_attemps,
+            max_attempts=self.config.max_reconnect_attempts,
             logger=self.logger
         )
 
@@ -91,6 +91,7 @@ class p2pChatApp:
         self.cli = CLI(
             peer_table=self.peer_table,
             router=self.router,
+            peer_server=self.peer_server,
             logger=self.logger
         )
 
