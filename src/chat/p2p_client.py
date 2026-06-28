@@ -1,4 +1,3 @@
-
 import asyncio
 
 import logging
@@ -29,7 +28,7 @@ class ConfiguracoesJson:
     rdv_ttl: int
     fixed_msg_ttl: int
     log_level: str
-    max_reconnect_attempts: int 
+    max_reconnect_attempts: int
     autonomous_mode: bool = False
     features: List[str] = field(default_factory=list)
 
@@ -67,7 +66,7 @@ class p2pChatApp:
             peer_table=self.peer_table
         )
 
-        #atribuição tardia necessária
+        # atribuição tardia necessária
         self.peer_server.keep_alive = self.keep_alive
 
         self.router = MessageRouter(
@@ -77,7 +76,7 @@ class p2pChatApp:
             ttl=1
         )
 
-        #atribuição tardia necessária
+        # atribuição tardia necessária
         self.peer_server.router = self.router
 
         self.rendezvous = RendezvousConnection(
@@ -120,7 +119,6 @@ class p2pChatApp:
 
         self.logger.info("Aplicação iniciada com sucesso.")
 
-    
     async def run(self) -> int:
 
         await self.start()
