@@ -7,6 +7,10 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, List, Optional
 
+#quanto tempo um peer fica em failed antes de tentar conectar de novo
+#quando acaba esse tempo volta pra disconnected 
+FAILED_RETRY_AFTER = 120
+ 
 
 class ConnectionState(Enum):
     DISCONNECTED = "DISCONNECTED" #estado inicial
@@ -98,6 +102,8 @@ class PeerTable:
             rec.connection_state = ConnectionState.DISCONNECTED
             rec.since_state = now
             rec.backoff_until = None
+            rec.attempts = 0
+            rec.last_error = None
  
             if changed_address:
                 rec.attempts = 0
@@ -107,21 +113,50 @@ class PeerTable:
                 self.logger.debug(f"[PeerTable] {peer_id} reapareceu com mesmo IP/porta -> histórico mantido.")
 
 
-        #correçao: estava em failed e reapareceu
+        #correçao: esta em failed ainda tá no rdv
         elif rec.connection_state == ConnectionState.FAILED:
-            rec.connection_state = ConnectionState.DISCONNECTED
-            rec.since_state = now
-            rec.backoff_until = None
-            rec.attempts = 0
-            rec.last_error = None
-            self.logger.info(f"[PeerTable] {peer_id} reapareceu no Rendezvous (estava FAILED) -> tentativas resetadas.")
+            if changed_address: #voltou diferente
+                rec.connection_state = ConnectionState.DISCONNECTED
+                rec.since_state = now
+                rec.backoff_until = None
+                rec.attempts = 0
+                rec.last_error = None
+                self.logger.info(
+                    f"[PeerTable] {peer_id} reapareceu com novo IP/porta "
+                    f"estava FAILED : tentativas resetadas."
+                )
+            else:
+                time_in_failed = now - rec.since_state
+                if time_in_failed >= FAILED_RETRY_AFTER:
+                    rec.connection_state = ConnectionState.DISCONNECTED
+                    rec.since_state = now
+                    rec.backoff_until = None
+                    rec.attempts = 0
+                    rec.last_error = None
+                    self.logger.debug(
+                        f"[PeerTable] {peer_id} em FAILED há {time_in_failed:.0f}s "
+                        f" resetando para nova tentativa."
+                    )
+                else:
+                    self.logger.debug(
+                        f"[PeerTable] {peer_id} ainda em FAILED "
+                        f"({time_in_failed:.0f}s/{FAILED_RETRY_AFTER}s) -> aguardando."
+                    )
 
 
-    def mark_stale_if_missing(self, seen_now: set[str]) -> None:
+    '''def mark_stale_if_missing(self, seen_now: set[str]) -> None:
         now = time.monotonic()
         for peer_id, rec in self._by_id.items():
             if peer_id not in seen_now:
                 if rec.connection_state != ConnectionState.CONNECTED:
+                    rec.connection_state = ConnectionState.STALE
+                    rec.since_state = now'''
+    
+    def mark_stale_if_missing(self, seen_now: set[str]) -> None:
+        now = time.monotonic()
+        for peer_id, rec in self._by_id.items():
+            if peer_id not in seen_now:
+                if rec.connection_state not in (ConnectionState.CONNECTED, ConnectionState.DIALING):
                     rec.connection_state = ConnectionState.STALE
                     rec.since_state = now
     
@@ -209,6 +244,7 @@ class PeerTable:
             ConnectionState.CONNECTED,
             ConnectionState.DIALING,
             ConnectionState.STALE,
+            ConnectionState.FAILED,
         ):
             return False
  
