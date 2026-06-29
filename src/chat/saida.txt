@@ -248,3 +248,74 @@ task: <Task pending name='Task-36' coro=<StreamReader.readline() done, defined a
 2026-06-28T01:38:48.224Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
 2026-06-28T01:38:48.991Z INFO pyp2p-chat: Registro removido do rendezvous.
 2026-06-28T01:38:48.991Z INFO pyp2p-chat: shutdown concluído.
+2026-06-28T20:39:08.388Z INFO root: [P2P] Logging iniciado: saida.txt
+2026-06-28T20:39:08.388Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
+2026-06-28T20:39:08.388Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
+2026-06-28T20:39:08.388Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
+2026-06-28T20:39:09.401Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
+2026-06-28T20:39:10.220Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
+2026-06-28T20:39:10.220Z INFO pyp2p-chat: Conectado a vm_giga@CIC
+2026-06-28T20:39:10.221Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
+2026-06-28T20:39:10.221Z INFO pyp2p-chat: [Router] iniciando com TTL=1
+2026-06-28T20:39:11.222Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
+2026-06-28T20:39:11.223Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
+2026-06-28T20:39:11.223Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
+2026-06-28T20:39:18.158Z INFO pyp2p-chat: [CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit
+2026-06-28T20:39:24.207Z INFO pyp2p-chat: [CLI] Listando todos os peers:
+2026-06-28T20:39:24.207Z INFO pyp2p-chat: [CLI] vm_giga@CIC
+2026-06-28T20:39:56.692Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oi com vc está?
+2026-06-28T20:39:56.718Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oi com vc está?
+2026-06-28T20:39:56.719Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
+2026-06-28T20:40:04.591Z INFO pyp2p-chat: [CLI] Mensagem global enviada
+2026-06-28T20:40:12.424Z INFO pyp2p-chat: [CLI] Mensagem enviada para peers em namespace: CIC
+2026-06-28T20:40:22.367Z INFO pyp2p-chat: [CLI] Namespace vazio ou inexistente, logo nenhuma mensagem enviada
+2026-06-28T20:40:36.946Z INFO pyp2p-chat: [CLI] Conexões ativas:
+2026-06-28T20:40:36.947Z INFO pyp2p-chat: [CLI] Conexões de Entrada (Inbound): Nenhuma
+2026-06-28T20:40:36.947Z INFO pyp2p-chat: [CLI] Conexões de Saída (Outbound): vm_giga@CIC
+2026-06-28T20:40:45.650Z INFO pyp2p-chat: [CLI] Tentativa de reconexão com peers
+2026-06-28T20:40:45.650Z INFO pyp2p-chat: Reconciliação forçada pelo Router
+2026-06-28T20:40:46.067Z INFO pyp2p-chat: [Router] Reconexão com peer
+2026-06-28T20:40:46.067Z INFO pyp2p-chat: [CLI] Sucesso em reconexão
+2026-06-28T20:41:46.382Z INFO pyp2p-chat: [CLI] Nível inválido. Use: DEBUG, INFO, WARNING ou ERROR
+2026-06-28T20:41:50.505Z INFO pyp2p-chat: [CLI] Nível de log ajustado para DEBUG
+2026-06-28T20:41:54.713Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
+2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
+2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
+2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
+2026-06-28T20:41:57.545Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
+2026-06-28T20:42:10.265Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
+2026-06-28T20:42:10.445Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 08b7911a-9fcf-4ef9-acc5-8d78eecd78f6
+2026-06-28T20:42:10.445Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 179.8ms
+2026-06-28T20:42:15.398Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
+2026-06-28T20:42:15.873Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
+2026-06-28T20:42:15.873Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
+2026-06-28T20:42:15.874Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
+2026-06-28T20:42:27.546Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
+2026-06-28T20:42:35.879Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
+2026-06-28T20:42:36.143Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
+2026-06-28T20:42:36.143Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
+2026-06-28T20:42:36.144Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
+2026-06-28T20:42:40.270Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
+2026-06-28T20:42:40.353Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 24a5462a-ff8f-4599-98f5-d07cbf7a299d
+2026-06-28T20:42:40.354Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 83.9ms
+2026-06-28T20:42:56.150Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
+2026-06-28T20:42:56.631Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
+2026-06-28T20:42:56.632Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
+2026-06-28T20:42:56.632Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
+2026-06-28T20:42:57.550Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
+2026-06-28T20:43:03.867Z INFO pyp2p-chat: [CLI] Nível de log ajustado para INFO
+2026-06-28T20:43:21.843Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oiee
+2026-06-28T20:43:22.018Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oiee
+2026-06-28T20:43:22.018Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
+2026-06-28T20:44:25.937Z INFO pyp2p-chat: [CLI] Quitting...
+2026-06-28T20:44:25.938Z INFO pyp2p-chat: Iniciando shutdown...
+2026-06-28T20:44:25.938Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
+2026-06-28T20:44:25.938Z INFO pyp2p-chat: [Router] parando
+2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] server fechado.
+2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
+2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
+2026-06-28T20:44:26.941Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
+2026-06-28T20:44:26.941Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
+2026-06-28T20:44:30.429Z INFO pyp2p-chat: Registro removido do rendezvous.
+2026-06-28T20:44:30.429Z INFO pyp2p-chat: shutdown concluído.
