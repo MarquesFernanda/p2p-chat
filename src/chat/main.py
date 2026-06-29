@@ -1,3 +1,12 @@
+'''
+IDENTIFICAÇÃO
+GRUPO 11
+Daniel Carvalho Mendes (231012737);
+Fernanda Marques Pereira (222024560);
+Thiago Carvalho Silva (222006463)
+
+'''
+
 import argparse
 import asyncio
 import logging
@@ -160,7 +169,7 @@ def main():
         logging.basicConfig()
         logging.exception(f"[P2P] Erro inesperado: {err}")
         exit_code = 1
-        
+
     raise SystemExit(exit_code)
 
 
