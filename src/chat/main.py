@@ -34,7 +34,7 @@ def setup_log(opt: str, app_name: str, file: Optional[str], is_log: bool):
         rtlog.handlers.clear()
 
     if file and not is_log:
-        handler = logging.FileHandler(file, mode='a')
+        handler = logging.FileHandler(file, mode='w')
         formatter = logging.Formatter(
             fmt="%(asctime)s.%(msecs)03dZ %(levelname)s %(name)s: %(message)s",
             datefmt="%Y-%m-%dT%H:%M:%S"

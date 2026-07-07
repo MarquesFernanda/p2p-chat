@@ -14,6 +14,7 @@ MAX_MSG_SIZE = 32768 #tamanho máximo de msg em bytes
 class ConnectionInfo: #stores connection data
 
     peer_id: str
+    namespace: str
     reader: asyncio.StreamReader
     writer: asyncio.StreamWriter
     direction: str
@@ -346,7 +347,7 @@ class PeerServer:
                         router.ack_events[msg_id].set()
                         self.logger.debug(f"[PeerServer] ACK recebido de {remote_peer_id} para msg {msg_id}")
                     else:
-                        # Caso o ACK chegue atrasado (após o timeout de 5s)
+                        # Caso o ACK segue atrasado (após o timeout de 5s)
                         self.logger.warning(f"[PeerServer] ACK recebido para ID desconhecido ou expirado: {msg_id}")
 
                 elif msg.get('type') == 'PUB':
@@ -428,8 +429,12 @@ class PeerServer:
 
 
     def _register_connections(self, remote_peer_id: str, reader, writer, direction, features):
+
+        ns = remote_peer_id.split('@')[1]
+
         nova_conexao = ConnectionInfo(
                     peer_id = remote_peer_id,
+                    namespace= ns,
                     reader = reader,
                     writer = writer,
                     direction = direction,

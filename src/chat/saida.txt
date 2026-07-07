@@ -1,321 +1,309 @@
-2026-06-28T01:18:07.552Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T01:18:07.552Z INFO pyp2p-chat: [P2P] Iniciando como debian@CIC em 0.0.0.0:8081
-2026-06-28T01:18:07.552Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T01:18:07.552Z INFO pyp2p-chat: [RDV] REGISTER debian@CIC:8081 (ttl=7200)
-2026-06-28T01:18:08.284Z INFO pyp2p-chat: registrado no Rendezvous como debian@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T01:18:08.896Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T01:18:08.896Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T01:18:13.697Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T01:18:13.697Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T01:18:14.699Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T01:18:14.699Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T01:18:14.699Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T01:18:40.969Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T01:18:40.969Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T01:18:40.969Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T01:18:40.969Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T01:18:40.969Z INFO pyp2p-chat: [Router] parando
-2026-06-28T01:18:41.971Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T01:18:41.971Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T01:18:41.971Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T01:18:41.971Z INFO pyp2p-chat: [RDV] UNREGISTER debian@CIC:8081
-2026-06-28T01:18:44.238Z WARNING pyp2p-chat: Falha no unregister: Event loop is closed
-2026-06-28T01:18:44.238Z ERROR asyncio: Task was destroyed but it is pending!
-task: <Task pending name='Task-36' coro=<StreamReader.readline() done, defined at /usr/lib/python3.10/asyncio/streams.py:505> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_release_waiter(<Future pendi...ask_wakeup()]>)() at /usr/lib/python3.10/asyncio/tasks.py:387]>
-2026-06-28T01:19:04.422Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T01:19:04.423Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
-2026-06-28T01:19:04.423Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T01:19:04.423Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
-2026-06-28T01:19:05.116Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T01:19:05.544Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T01:19:05.544Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T01:19:10.432Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T01:19:10.432Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T01:19:11.434Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T01:19:11.434Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T01:19:11.434Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T01:20:10.978Z INFO pyp2p-chat: [CLI] Listando todos os peers:
-2026-06-28T01:20:10.978Z INFO pyp2p-chat: [CLI] vm_giga@CIC
-2026-06-28T01:20:10.990Z INFO pyp2p-chat: [CLI] dell@CIC
-2026-06-28T01:20:16.474Z WARNING pyp2p-chat: [PeerTable] dell@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
-2026-06-28T01:20:17.414Z INFO pyp2p-chat: [PeerTable] dell@CIC reapareceu no Rendezvous (estava FAILED) -> tentativas resetadas.
-2026-06-28T01:20:19.567Z INFO pyp2p-chat: [CLI] rtt's dos peers requeridos:
-2026-06-28T01:20:19.567Z INFO pyp2p-chat: [CLI] Mean RTT for vm_giga@CIC: 14.1 ms
-2026-06-28T01:20:19.568Z INFO pyp2p-chat: [CLI] No connection for dell@CIC
-2026-06-28T01:20:36.640Z INFO pyp2p-chat: [CLI] Mensagem global enviada
-2026-06-28T01:20:45.031Z INFO pyp2p-chat: [CLI] Mensagem enviada para peers em namespace: CIC
-2026-06-28T01:20:51.018Z INFO pyp2p-chat: [CLI] Namespace vazio ou inexistente, logo nenhuma mensagem enviada
-2026-06-28T01:21:00.895Z INFO pyp2p-chat: [CLI] rtt's dos peers requeridos:
-2026-06-28T01:21:00.895Z INFO pyp2p-chat: [CLI] Mean RTT for vm_giga@CIC: 112.6 ms
-2026-06-28T01:21:00.895Z INFO pyp2p-chat: [CLI] No connection for dell@CIC
-2026-06-28T01:23:30.951Z INFO pyp2p-chat: [CLI] Parâmetros errads para /msg
-2026-06-28T01:24:25.933Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oie
-2026-06-28T01:24:25.949Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oie
-2026-06-28T01:24:25.949Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
-2026-06-28T01:27:24.496Z INFO pyp2p-chat: [CLI] Quitting...
-2026-06-28T01:27:24.496Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T01:27:24.496Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T01:27:24.496Z INFO pyp2p-chat: [Router] parando
-2026-06-28T01:27:25.498Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T01:27:25.498Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T01:27:25.499Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T01:27:25.499Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T01:27:25.499Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T01:27:25.499Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
-2026-06-28T01:27:26.688Z INFO pyp2p-chat: Registro removido do rendezvous.
-2026-06-28T01:27:26.688Z INFO pyp2p-chat: shutdown concluído.
-2026-06-28T01:27:34.759Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T01:27:34.759Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
-2026-06-28T01:27:34.759Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T01:27:34.760Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
-2026-06-28T01:27:35.291Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T01:27:35.740Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T01:27:35.740Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T01:27:35.740Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T01:27:35.740Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T01:27:36.742Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T01:27:36.743Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T01:27:36.743Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T01:27:55.536Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oiiii testando me responde
-2026-06-28T01:27:55.570Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oiiii testando me responde
-2026-06-28T01:27:55.571Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
-2026-06-28T01:28:34.483Z INFO pyp2p-chat: [CLI] Parâmetros errads para /msg
-2026-06-28T01:28:38.598Z INFO pyp2p-chat: [CLI] Parâmetros errads para /msg
-2026-06-28T01:30:07.709Z INFO pyp2p-chat: [CLI] Quitting...
-2026-06-28T01:30:07.710Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T01:30:07.710Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T01:30:07.710Z INFO pyp2p-chat: [Router] parando
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T01:30:08.711Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
-2026-06-28T01:30:09.814Z INFO pyp2p-chat: Registro removido do rendezvous.
-2026-06-28T01:30:09.814Z INFO pyp2p-chat: shutdown concluído.
-2026-06-28T01:30:13.384Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T01:30:13.384Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
-2026-06-28T01:30:13.384Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T01:30:13.384Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
-2026-06-28T01:30:13.497Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T01:30:14.538Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T01:30:14.538Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T01:30:14.538Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T01:30:14.538Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T01:30:15.539Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T01:30:15.540Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T01:30:15.540Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T01:30:54.838Z INFO pyp2p-chat: [CLI] Mensagem global enviada
-2026-06-28T01:31:04.969Z INFO pyp2p-chat: [CLI] Mensagem enviada para peers em namespace: CIC
-2026-06-28T01:31:11.618Z INFO pyp2p-chat: [CLI] Parâmetros errados para /pub
-2026-06-28T01:31:18.354Z INFO pyp2p-chat: [CLI] Parâmetros errados para /pub
-2026-06-28T01:31:25.549Z INFO pyp2p-chat: [CLI] Namespace vazio ou inexistente, logo nenhuma mensagem enviada
-2026-06-28T01:32:08.937Z INFO pyp2p-chat: [CLI] Conexões ativas:
-2026-06-28T01:32:08.937Z INFO pyp2p-chat: [CLI] Conexões de Entrada (Inbound): Nenhuma
-2026-06-28T01:32:08.937Z INFO pyp2p-chat: [CLI] Conexões de Saída (Outbound): vm_giga@CIC
-2026-06-28T01:32:17.629Z INFO pyp2p-chat: [CLI] Tentativa de reconexão com peers
-2026-06-28T01:32:17.629Z INFO pyp2p-chat: Reconciliação forçada pelo Router
-2026-06-28T01:32:18.124Z INFO pyp2p-chat: [Router] Reconexão com peer
-2026-06-28T01:32:18.124Z INFO pyp2p-chat: [CLI] Sucesso em reconexão
-2026-06-28T01:32:52.027Z INFO pyp2p-chat: [CLI] rtt's dos peers requeridos:
-2026-06-28T01:32:52.027Z INFO pyp2p-chat: [CLI] Mean RTT for vm_giga@CIC: 80.2 ms
-2026-06-28T01:33:22.131Z INFO pyp2p-chat: [CLI] rtt's dos peers requeridos:
-2026-06-28T01:33:22.131Z INFO pyp2p-chat: [CLI] Mean RTT for vm_giga@CIC: 80.2 ms
-2026-06-28T01:33:32.349Z INFO pyp2p-chat: [CLI] Nível de log ajustado para DEBUG
-2026-06-28T01:33:42.235Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:33:43.015Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:33:43.015Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:33:43.015Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:33:44.586Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:33:44.755Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 14579eaf-4539-44f1-a356-f4208200e426
-2026-06-28T01:33:44.755Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 169.6ms
-2026-06-28T01:33:49.262Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:34:03.022Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:34:03.802Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:34:03.803Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:34:03.803Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:34:14.596Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:34:14.666Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 5e37c868-844c-45ff-9b6c-715730a89a59
-2026-06-28T01:34:14.666Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 70.5ms
-2026-06-28T01:34:19.264Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:34:23.352Z INFO pyp2p-chat: [CLI] Nível de log ajustado para INFO
-2026-06-28T01:34:59.042Z INFO pyp2p-chat: [CLI] Nível de log ajustado para DEBUG
-2026-06-28T01:35:05.584Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:35:06.267Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:35:06.267Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:35:06.267Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:35:14.616Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:35:14.671Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 7d5541a3-18c7-4979-be7a-b46998d81b43
-2026-06-28T01:35:14.671Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 55.4ms
-2026-06-28T01:35:19.272Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:35:26.268Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:35:26.951Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:35:26.952Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:35:26.952Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:35:32.629Z INFO pyp2p-chat: [CLI] Nível inválido. Use: DEBUG, INFO, WARNING ou ERROR
-2026-06-28T01:35:44.625Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:35:44.675Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 57e28bc6-080c-469e-9684-3d79db430b2a
-2026-06-28T01:35:44.675Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 49.7ms
-2026-06-28T01:35:46.953Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:35:47.227Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:35:47.227Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:35:47.227Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:35:49.277Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:36:07.229Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:36:07.607Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:36:07.607Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:36:07.607Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:36:14.634Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:36:14.681Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 3ffb3012-9709-45f9-945f-2fae1457c772
-2026-06-28T01:36:14.681Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 46.9ms
-2026-06-28T01:36:19.275Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:36:27.610Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:36:28.293Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:36:28.293Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:36:28.294Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:36:44.645Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:36:44.681Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 2862dd61-330b-467d-b4dc-0c10981ad1b5
-2026-06-28T01:36:44.682Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 37.2ms
-2026-06-28T01:36:48.296Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:36:48.976Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:36:48.976Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:36:48.976Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:36:49.281Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:37:08.980Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:37:09.250Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:37:09.251Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:37:09.251Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:37:14.651Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:37:14.687Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 130ac87d-7b88-4b00-90bd-5724d4992059
-2026-06-28T01:37:14.687Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 36.7ms
-2026-06-28T01:37:19.285Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:37:29.254Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:37:29.937Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:37:29.937Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:37:29.937Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:37:44.661Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:37:44.676Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 7e9b7004-0d5e-40bc-b625-896c6e01fd67
-2026-06-28T01:37:44.676Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 15.6ms
-2026-06-28T01:37:49.289Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T01:37:49.939Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:37:51.133Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:37:51.133Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:37:51.133Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:38:11.139Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T01:38:11.410Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T01:38:11.410Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T01:38:11.410Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T01:38:14.664Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T01:38:14.694Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id f2183277-1413-4029-ab60-04e3da5eb029
-2026-06-28T01:38:14.694Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 30.7ms
-2026-06-28T01:38:17.896Z INFO pyp2p-chat: [CLI] Quitting...
-2026-06-28T01:38:17.896Z DEBUG pyp2p-chat: Discover loop encerrado.
-2026-06-28T01:38:17.897Z DEBUG pyp2p-chat: Reconnect loop encerrado.
-2026-06-28T01:38:17.897Z DEBUG pyp2p-chat: RDV refresh loop encerrado.
-2026-06-28T01:38:17.897Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T01:38:17.897Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T01:38:17.897Z INFO pyp2p-chat: [Router] parando
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T01:38:18.899Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
-2026-06-28T01:38:19.600Z INFO pyp2p-chat: Registro removido do rendezvous.
-2026-06-28T01:38:19.601Z INFO pyp2p-chat: shutdown concluído.
-2026-06-28T01:38:20.736Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T01:38:20.737Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
-2026-06-28T01:38:20.737Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T01:38:20.737Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
-2026-06-28T01:38:21.033Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T01:38:21.445Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T01:38:21.445Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T01:38:21.445Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T01:38:21.445Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T01:38:22.447Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T01:38:22.447Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T01:38:22.447Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T01:38:24.164Z INFO pyp2p-chat: [CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit
-2026-06-28T01:38:47.221Z INFO pyp2p-chat: [CLI] Quitting...
-2026-06-28T01:38:47.221Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T01:38:47.221Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T01:38:47.221Z INFO pyp2p-chat: [Router] parando
-2026-06-28T01:38:48.223Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T01:38:48.224Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T01:38:48.224Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T01:38:48.224Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T01:38:48.224Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T01:38:48.224Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
-2026-06-28T01:38:48.991Z INFO pyp2p-chat: Registro removido do rendezvous.
-2026-06-28T01:38:48.991Z INFO pyp2p-chat: shutdown concluído.
-2026-06-28T20:39:08.388Z INFO root: [P2P] Logging iniciado: saida.txt
-2026-06-28T20:39:08.388Z INFO pyp2p-chat: [P2P] Iniciando como aluno3@CIC em 0.0.0.0:8081
-2026-06-28T20:39:08.388Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
-2026-06-28T20:39:08.388Z INFO pyp2p-chat: [RDV] REGISTER aluno3@CIC:8081 (ttl=7200)
-2026-06-28T20:39:09.401Z INFO pyp2p-chat: registrado no Rendezvous como aluno3@CIC (IP externo: 177.235.17.103, TTL: 7200s)
-2026-06-28T20:39:10.220Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com vm_giga@CIC
-2026-06-28T20:39:10.220Z INFO pyp2p-chat: Conectado a vm_giga@CIC
-2026-06-28T20:39:10.221Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
-2026-06-28T20:39:10.221Z INFO pyp2p-chat: [Router] iniciando com TTL=1
-2026-06-28T20:39:11.222Z INFO pyp2p-chat: Aplicação iniciada com sucesso.
-2026-06-28T20:39:11.223Z INFO pyp2p-chat: Discover loop iniciado (intervalo=20s)
-2026-06-28T20:39:11.223Z INFO pyp2p-chat: RDV refresh loop iniciado (intervalo=3600s)
-2026-06-28T20:39:18.158Z INFO pyp2p-chat: [CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit
-2026-06-28T20:39:24.207Z INFO pyp2p-chat: [CLI] Listando todos os peers:
-2026-06-28T20:39:24.207Z INFO pyp2p-chat: [CLI] vm_giga@CIC
-2026-06-28T20:39:56.692Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oi com vc está?
-2026-06-28T20:39:56.718Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oi com vc está?
-2026-06-28T20:39:56.719Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
-2026-06-28T20:40:04.591Z INFO pyp2p-chat: [CLI] Mensagem global enviada
-2026-06-28T20:40:12.424Z INFO pyp2p-chat: [CLI] Mensagem enviada para peers em namespace: CIC
-2026-06-28T20:40:22.367Z INFO pyp2p-chat: [CLI] Namespace vazio ou inexistente, logo nenhuma mensagem enviada
-2026-06-28T20:40:36.946Z INFO pyp2p-chat: [CLI] Conexões ativas:
-2026-06-28T20:40:36.947Z INFO pyp2p-chat: [CLI] Conexões de Entrada (Inbound): Nenhuma
-2026-06-28T20:40:36.947Z INFO pyp2p-chat: [CLI] Conexões de Saída (Outbound): vm_giga@CIC
-2026-06-28T20:40:45.650Z INFO pyp2p-chat: [CLI] Tentativa de reconexão com peers
-2026-06-28T20:40:45.650Z INFO pyp2p-chat: Reconciliação forçada pelo Router
-2026-06-28T20:40:46.067Z INFO pyp2p-chat: [Router] Reconexão com peer
-2026-06-28T20:40:46.067Z INFO pyp2p-chat: [CLI] Sucesso em reconexão
-2026-06-28T20:41:46.382Z INFO pyp2p-chat: [CLI] Nível inválido. Use: DEBUG, INFO, WARNING ou ERROR
-2026-06-28T20:41:50.505Z INFO pyp2p-chat: [CLI] Nível de log ajustado para DEBUG
-2026-06-28T20:41:54.713Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T20:41:55.392Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T20:41:57.545Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T20:42:10.265Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T20:42:10.445Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 08b7911a-9fcf-4ef9-acc5-8d78eecd78f6
-2026-06-28T20:42:10.445Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 179.8ms
-2026-06-28T20:42:15.398Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T20:42:15.873Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T20:42:15.873Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T20:42:15.874Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T20:42:27.546Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T20:42:35.879Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T20:42:36.143Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T20:42:36.143Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T20:42:36.144Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T20:42:40.270Z DEBUG pyp2p-chat: [KeepAlive] Ping enviado para vm_giga@CIC
-2026-06-28T20:42:40.353Z DEBUG pyp2p-chat: [KeepAlive] Event set for msg_id 24a5462a-ff8f-4599-98f5-d07cbf7a299d
-2026-06-28T20:42:40.354Z DEBUG pyp2p-chat: [KeepAlive] PONG received from vm_giga@CIC | RTT: 83.9ms
-2026-06-28T20:42:56.150Z DEBUG pyp2p-chat: [RDV] DISCOVER namespace=CIC
-2026-06-28T20:42:56.631Z DEBUG pyp2p-chat: [RDV] DISCOVER -> 2 peer(s)
-2026-06-28T20:42:56.632Z DEBUG pyp2p-chat: [State] Set peers for #CIC: 2 item(s)
-2026-06-28T20:42:56.632Z DEBUG pyp2p-chat: DISCOVER: 2 peers no namespace 'CIC'
-2026-06-28T20:42:57.550Z DEBUG pyp2p-chat: [PeerServer] Enviando PONG para vm_giga@CIC
-2026-06-28T20:43:03.867Z INFO pyp2p-chat: [CLI] Nível de log ajustado para INFO
-2026-06-28T20:43:21.843Z INFO pyp2p-chat: [Router] Envio vm_giga@CIC: oiee
-2026-06-28T20:43:22.018Z INFO pyp2p-chat: [MSG] vm_giga@CIC: Auto-reply to your message: oiee
-2026-06-28T20:43:22.018Z INFO pyp2p-chat: [CLI] Mensagem enviada para vm_giga@CIC
-2026-06-28T20:44:25.937Z INFO pyp2p-chat: [CLI] Quitting...
-2026-06-28T20:44:25.938Z INFO pyp2p-chat: Iniciando shutdown...
-2026-06-28T20:44:25.938Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
-2026-06-28T20:44:25.938Z INFO pyp2p-chat: [Router] parando
-2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] server fechado.
-2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerTable] vm_giga@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
-2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com vm_giga@CIC
-2026-06-28T20:44:26.940Z INFO pyp2p-chat: [PeerServer] Tasks de mensagens canceladas.
-2026-06-28T20:44:26.941Z INFO pyp2p-chat: [PeerServer] Parado com sucesso.
-2026-06-28T20:44:26.941Z INFO pyp2p-chat: [RDV] UNREGISTER aluno3@CIC:8081
-2026-06-28T20:44:30.429Z INFO pyp2p-chat: Registro removido do rendezvous.
-2026-06-28T20:44:30.429Z INFO pyp2p-chat: shutdown concluído.
+2026-07-02T09:04:24.686Z INFO root: [P2P] Logging iniciado: saida.txt
+2026-07-02T09:04:24.687Z INFO pyp2p-chat: [P2P] Iniciando como grupo11@CIC em 0.0.0.0:8081
+2026-07-02T09:04:24.687Z INFO pyp2p-chat: [PeerServer] Escutando em: 0.0.0.0:8081
+2026-07-02T09:04:24.687Z INFO pyp2p-chat: [RDV] REGISTER grupo11@CIC:8081 (ttl=7200)
+2026-07-02T09:04:24.827Z INFO pyp2p-chat: [P2P] Registrado no Rendezvous como grupo11@CIC (IP externo: 192.168.50.143, TTL: 7200s)
+2026-07-02T09:04:24.980Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo6_Iago@CIC
+2026-07-02T09:04:24.980Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo6_Iago@CIC
+2026-07-02T09:04:25.262Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Caetano@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [P2P] Conectado a Caetano@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo6_Iago@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [P2P] Conectado a Grupo6_Iago@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo8@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [P2P] Conectado a Grupo8@CIC
+2026-07-02T09:04:25.263Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo3@CIC
+2026-07-02T09:04:25.263Z INFO pyp2p-chat: [P2P] Conectado a Grupo3@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo5@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [P2P] Conectado a Grupo5@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo13@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [P2P] Conectado a Grupo13@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo7@CIC
+2026-07-02T09:04:25.264Z INFO pyp2p-chat: [P2P] Conectado a Grupo7@CIC
+2026-07-02T09:04:25.270Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:04:25.271Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo10@CIC
+2026-07-02T09:04:25.271Z INFO pyp2p-chat: [P2P] Conectado a grupo10@CIC
+2026-07-02T09:04:25.271Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo2@CIC
+2026-07-02T09:04:25.271Z INFO pyp2p-chat: [P2P] Conectado a Grupo2@CIC
+2026-07-02T09:04:25.277Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo13.2@CIC
+2026-07-02T09:04:25.278Z INFO pyp2p-chat: [P2P] Conectado a Grupo13.2@CIC
+2026-07-02T09:04:25.441Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo15R@CIC
+2026-07-02T09:04:25.441Z INFO pyp2p-chat: [P2P] Conectado a grupo15R@CIC
+2026-07-02T09:04:25.677Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo14@CIC
+2026-07-02T09:04:25.677Z INFO pyp2p-chat: [P2P] Conectado a grupo14@CIC
+2026-07-02T09:04:26.290Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo6@CIC
+2026-07-02T09:04:26.290Z INFO pyp2p-chat: [P2P] Conectado a grupo6@CIC
+2026-07-02T09:04:26.291Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo12@CIC
+2026-07-02T09:04:26.291Z INFO pyp2p-chat: [P2P] Conectado a Grupo12@CIC
+2026-07-02T09:04:27.313Z INFO pyp2p-chat: [PeerServer] HELLO recebido de grupo8.2@CIC
+2026-07-02T09:04:27.313Z INFO pyp2p-chat: [PeerServer] Handshake concluído com grupo8.2@CIC
+2026-07-02T09:04:27.492Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo1@CIC
+2026-07-02T09:04:27.493Z INFO pyp2p-chat: [P2P] Conectado a Grupo1@CIC
+2026-07-02T09:04:28.612Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * tem p?
+2026-07-02T09:04:31.496Z INFO pyp2p-chat: [KeepAlive] Starting Loop (interval=30s)
+2026-07-02T09:04:31.496Z INFO pyp2p-chat: [Router] iniciando com TTL=1
+2026-07-02T09:04:32.497Z INFO pyp2p-chat: [P2P] Aplicação iniciada com sucesso.
+2026-07-02T09:04:32.500Z INFO pyp2p-chat: [P2P] Discover loop iniciado (intervalo=15s)
+2026-07-02T09:04:32.500Z INFO pyp2p-chat: [P2P] RDV refresh loop iniciado (intervalo=3600s)
+2026-07-02T09:04:36.931Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Letra t
+2026-07-02T09:04:38.571Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * e s p e _ _ _ c a
+2026-07-02T09:04:39.870Z INFO pyp2p-chat: [PeerServer] HELLO recebido de grupo9@CIC
+2026-07-02T09:04:39.870Z INFO pyp2p-chat: [PeerServer] grupo9@CIC ainda não conhecido. Registrando via handshake...
+2026-07-02T09:04:39.870Z INFO pyp2p-chat: [PeerServer] Handshake concluído com grupo9@CIC
+2026-07-02T09:04:42.503Z INFO pyp2p-chat: [P2P] Conectado a grupo8.2@CIC
+2026-07-02T09:04:42.750Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:04:42.751Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo4@CIC
+2026-07-02T09:04:42.751Z INFO pyp2p-chat: [P2P] Conectado a Grupo4@CIC
+2026-07-02T09:04:46.553Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * -1 vida: t
+2026-07-02T09:04:48.073Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo9.2@CIC
+2026-07-02T09:04:48.073Z INFO pyp2p-chat: [P2P] Conectado a grupo9.2@CIC
+2026-07-02T09:04:48.074Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:04:50.230Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * tem n?
+2026-07-02T09:04:56.039Z INFO pyp2p-chat: [PUB] Grupo13.2@CIC: #CIC tem quantas vidas isso?
+2026-07-02T09:04:58.427Z INFO pyp2p-chat: [PUB] Grupo1@CIC: * tem n?
+2026-07-02T09:04:58.495Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:04:58.534Z INFO pyp2p-chat: [PeerServer] HELLO recebido de grupo15P@CIC
+2026-07-02T09:04:58.535Z INFO pyp2p-chat: [PeerServer] Handshake concluído com grupo15P@CIC
+2026-07-02T09:05:04.050Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * e s p e _ _ n c a
+2026-07-02T09:05:11.502Z WARNING pyp2p-chat: [PeerTable] grupo15R@CIC -> STALE (timeout de PING)
+2026-07-02T09:05:11.502Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15R@CIC (ID: d129a07c-9554-4ea7-b8ea-fb46e231ef41)
+2026-07-02T09:05:11.503Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: cfec078e-e1f6-4ddc-b017-edabb4bb31df)
+2026-07-02T09:05:13.086Z INFO pyp2p-chat: [P2P] Conectado a grupo15P@CIC
+2026-07-02T09:05:13.128Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Esperança
+2026-07-02T09:05:14.291Z INFO pyp2p-chat: [PUB] Grupo4@CIC: grupo11@CIC espe4ança
+2026-07-02T09:05:16.740Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * espelunca
+2026-07-02T09:05:17.653Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * morreu
+2026-07-02T09:05:18.196Z INFO pyp2p-chat: [P2P] Conectado a grupo15R@CIC
+2026-07-02T09:05:18.450Z WARNING pyp2p-chat: [PeerTable] Grupo4_1@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:05:18.482Z WARNING pyp2p-chat: [PeerServer] Conexão fechada rapidamente demais para receber HELLO_OK
+2026-07-02T09:05:18.482Z WARNING pyp2p-chat: [PeerTable] grupo2.2@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:05:21.009Z INFO pyp2p-chat: [PeerServer] BYE recebido de grupo9@CIC, motivo: Shutting down
+2026-07-02T09:05:21.010Z INFO pyp2p-chat: [PeerTable] grupo9@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:05:21.010Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo9@CIC
+2026-07-02T09:05:23.906Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * droga
+2026-07-02T09:05:23.906Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * era espelunca
+2026-07-02T09:05:31.544Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Raios
+2026-07-02T09:05:31.569Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo4@CIC, motivo: Closing all connections
+2026-07-02T09:05:31.570Z INFO pyp2p-chat: [PeerTable] Grupo4@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:05:31.570Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo4@CIC
+2026-07-02T09:05:33.712Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo6Bruno@CIC
+2026-07-02T09:05:33.713Z INFO pyp2p-chat: [P2P] Conectado a Grupo6Bruno@CIC
+2026-07-02T09:05:33.713Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo4@CIC
+2026-07-02T09:05:33.713Z INFO pyp2p-chat: [P2P] Conectado a Grupo4@CIC
+2026-07-02T09:05:33.833Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Raios duplos
+2026-07-02T09:05:36.603Z WARNING pyp2p-chat: [PeerTable] grupo14b@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:05:37.642Z WARNING pyp2p-chat: [PeerServer] Conexão fechada no meio de mensagem enviada
+2026-07-02T09:05:37.643Z INFO pyp2p-chat: [PeerTable] Grupo4@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:05:37.643Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo4@CIC
+2026-07-02T09:05:39.254Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo6b@CIC
+2026-07-02T09:05:39.254Z INFO pyp2p-chat: [P2P] Conectado a grupo6b@CIC
+2026-07-02T09:05:41.506Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15R@CIC (ID: 4f0025d0-d36f-4d6b-82b5-06b0d07e9366)
+2026-07-02T09:05:41.506Z WARNING pyp2p-chat: [KeepAlive] PING timeout for Grupo4@CIC (ID: aab4042c-474d-47bf-a1d7-8c1add69355c)
+2026-07-02T09:05:41.506Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 9b4c1748-0d98-4887-b89d-24ac03003ff5)
+2026-07-02T09:05:43.893Z WARNING pyp2p-chat: [PeerTable] grupo15@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:05:44.331Z WARNING pyp2p-chat: [PeerTable] Grupo3.2@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:06:11.510Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15R@CIC (ID: 1cef0f52-191d-4c82-a3c2-5cc1670a6048)
+2026-07-02T09:06:11.511Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 21851d03-69bc-4a67-81a8-cfaeb2f0e188)
+2026-07-02T09:06:27.196Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo3.2@CIC
+2026-07-02T09:06:27.197Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo3.2@CIC
+2026-07-02T09:06:33.698Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo12@CIC, motivo: Aplicação encerrada
+2026-07-02T09:06:33.698Z INFO pyp2p-chat: [PeerTable] Grupo12@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:06:33.698Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo12@CIC
+2026-07-02T09:06:36.377Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo5@CIC
+2026-07-02T09:06:36.377Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo5@CIC
+2026-07-02T09:06:36.477Z INFO pyp2p-chat: [PUB] Grupo5@CIC: * olá
+2026-07-02T09:06:40.526Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo4@CIC
+2026-07-02T09:06:40.526Z INFO pyp2p-chat: [P2P] Conectado a Grupo4@CIC
+2026-07-02T09:06:41.513Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15R@CIC (ID: b0fea3ca-6484-4ae4-82c7-431128c3956c)
+2026-07-02T09:06:41.513Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 5b08a316-e9c2-47e6-b6eb-ccc5a285f438)
+2026-07-02T09:06:42.810Z INFO pyp2p-chat: [PeerServer] BYE recebido de grupo8.2@CIC, motivo: None
+2026-07-02T09:06:42.810Z INFO pyp2p-chat: [PeerTable] grupo8.2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:06:42.810Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo8.2@CIC
+2026-07-02T09:06:45.671Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * Forca _ _ _ _ _ _ _ _ _
+2026-07-02T09:06:51.544Z INFO pyp2p-chat: [CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit
+2026-07-02T09:06:52.762Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * eu quero um A
+2026-07-02T09:06:54.674Z INFO pyp2p-chat: [PeerServer] HELLO recebido de grupo9@CIC
+2026-07-02T09:06:54.674Z INFO pyp2p-chat: [PeerServer] Handshake concluído com grupo9@CIC
+2026-07-02T09:06:55.514Z WARNING pyp2p-chat: [PeerServer] Conexão fechada no meio de mensagem enviada
+2026-07-02T09:06:55.514Z INFO pyp2p-chat: [PeerTable] grupo15R@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:06:55.514Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo15R@CIC
+2026-07-02T09:06:56.192Z INFO pyp2p-chat: [CLI] Tentativa de reconexão com peers
+2026-07-02T09:06:56.192Z INFO pyp2p-chat: [P2P] Reconciliação forçada pelo Router
+2026-07-02T09:06:56.287Z INFO pyp2p-chat: [Router] Reconexão com peer
+2026-07-02T09:06:56.287Z INFO pyp2p-chat: [CLI] Sucesso em reconexão
+2026-07-02T09:06:59.493Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * eu qeuro um p
+2026-07-02T09:07:11.125Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com grupo15r@CIC
+2026-07-02T09:07:11.126Z INFO pyp2p-chat: [P2P] Conectado a grupo15r@CIC
+2026-07-02T09:07:11.516Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 959c44c5-7b82-424c-855c-e83b6079dbd7)
+2026-07-02T09:07:11.647Z WARNING pyp2p-chat: [PeerServer] Conexão fechada no meio de mensagem enviada
+2026-07-02T09:07:11.647Z INFO pyp2p-chat: [PeerTable] grupo14@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:07:11.647Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo14@CIC
+2026-07-02T09:07:17.270Z INFO pyp2p-chat: [PUB] grupo9.2@CIC: * eu quero um E
+2026-07-02T09:07:19.342Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo7@CIC, motivo: O utilizador encerrou a ligação
+2026-07-02T09:07:19.343Z INFO pyp2p-chat: [PeerTable] Grupo7@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:07:19.343Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo7@CIC
+2026-07-02T09:07:19.571Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo7@CIC
+2026-07-02T09:07:19.572Z INFO pyp2p-chat: [P2P] Conectado a Grupo7@CIC
+2026-07-02T09:07:19.847Z WARNING pyp2p-chat: [PeerServer] Conexão fechada no meio de mensagem enviada
+2026-07-02T09:07:19.847Z INFO pyp2p-chat: [PeerTable] Grupo7@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:07:19.847Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo7@CIC
+2026-07-02T09:07:20.161Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * _ a _ a _ _ a _ a
+2026-07-02T09:07:28.215Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * -2 vidas
+2026-07-02T09:07:33.665Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * eu quero um i
+2026-07-02T09:07:34.253Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Ta ferro
+2026-07-02T09:07:41.520Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: a183fe8c-5516-4b47-937a-d90b826914a4)
+2026-07-02T09:07:41.566Z ERROR pyp2p-chat: [PeerServer] Erro no recebimento de mensagens do peer Grupo3.2@CIC: [Errno 104] Connection reset by peer
+2026-07-02T09:07:41.566Z ERROR asyncio: Task exception was never retrieved
+future: <Task finished name='Task-365' coro=<PeerServer._handle_peer_messages() done, defined at /home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py:262> exception=ConnectionResetError(104, 'Connection reset by peer')>
+Traceback (most recent call last):
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 415, in _handle_peer_messages
+    await writer.wait_closed()
+  File "/usr/lib/python3.10/asyncio/streams.py", line 343, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 862, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2026-07-02T09:07:41.674Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo4@CIC, motivo: Closing all connections
+2026-07-02T09:07:41.675Z INFO pyp2p-chat: [PeerTable] Grupo4@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:07:41.675Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo4@CIC
+2026-07-02T09:07:46.533Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo12@CIC
+2026-07-02T09:07:46.533Z INFO pyp2p-chat: [P2P] Conectado a Grupo12@CIC
+2026-07-02T09:07:46.875Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Quero um s
+2026-07-02T09:07:52.782Z INFO pyp2p-chat: [PUB] Grupo13@CIC: * mauricio ayala a celebration of life
+2026-07-02T09:08:01.520Z WARNING pyp2p-chat: [KeepAlive] Error in sending PING to peer Grupo3.2@CIC. Error: [Errno 104] Connection reset by peer
+2026-07-02T09:08:01.925Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * _ a _ a _ _ a i a
+2026-07-02T09:08:11.523Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 608ea8e9-a42a-4be1-a833-f7d3a0b002d3)
+2026-07-02T09:08:16.659Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo12@CIC, motivo: Aplicação encerrada
+2026-07-02T09:08:16.660Z INFO pyp2p-chat: [PeerTable] Grupo12@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:08:16.660Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo12@CIC
+2026-07-02T09:08:20.950Z INFO pyp2p-chat: [PUB] grupo6b@CIC: * quero um b
+2026-07-02T09:08:27.367Z INFO pyp2p-chat: [PeerServer] Conexão outbound realizada com Grupo4_1@CIC
+2026-07-02T09:08:27.367Z INFO pyp2p-chat: [P2P] Conectado a Grupo4_1@CIC
+2026-07-02T09:08:28.794Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * -1
+2026-07-02T09:08:29.787Z WARNING pyp2p-chat: [PeerTable] grupo14@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:08:29.787Z WARNING pyp2p-chat: [PeerTable] grupo2.2@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:08:31.525Z WARNING pyp2p-chat: [KeepAlive] Error in sending PING to peer Grupo3.2@CIC. Error: [Errno 104] Connection reset by peer
+2026-07-02T09:08:33.404Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * fake
+2026-07-02T09:08:34.375Z WARNING pyp2p-chat: [PeerTable] Grupo8.2@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:08:41.527Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: c843ba9c-5664-44fc-aab9-76359f35f981)
+2026-07-02T09:08:41.528Z WARNING pyp2p-chat: [PeerTable] grupo15r@CIC -> STALE (timeout de PING)
+2026-07-02T09:08:41.528Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15r@CIC (ID: 333ed814-7d93-4f06-a993-e7fece9e09b9)
+2026-07-02T09:08:46.298Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * _ a _ a _ b a i a
+2026-07-02T09:08:46.912Z INFO pyp2p-chat: [P2P] Conectado a grupo15r@CIC
+2026-07-02T09:08:48.170Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * samambaia[H
+2026-07-02T09:08:50.011Z WARNING pyp2p-chat: [PeerTable] grupo14b@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:08:59.925Z INFO pyp2p-chat: [PUB] Grupo8@CIC: * isso
+2026-07-02T09:09:01.528Z WARNING pyp2p-chat: [KeepAlive] Error in sending PING to peer Grupo3.2@CIC. Error: [Errno 104] Connection reset by peer
+2026-07-02T09:09:02.597Z INFO pyp2p-chat: [PUB] Grupo3@CIC: * solucei, perdão
+2026-07-02T09:09:03.815Z WARNING pyp2p-chat: [PeerServer] Conexão fechada no meio de mensagem enviada
+2026-07-02T09:09:03.816Z INFO pyp2p-chat: [PeerTable] Grupo2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:03.816Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo2@CIC
+2026-07-02T09:09:04.382Z WARNING pyp2p-chat: [PeerTable] grupo15@CIC -> FAILED (excedeu 5 tentativas; último erro: Falha no handshake TCP)
+2026-07-02T09:09:06.785Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo2@CIC
+2026-07-02T09:09:06.785Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo2@CIC
+2026-07-02T09:09:09.660Z INFO pyp2p-chat: [PUB] Grupo6_Iago@CIC: * Kkkkkkkkkkkkk
+2026-07-02T09:09:11.531Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15P@CIC (ID: 5bad7e8c-a82b-48f9-8349-700155486099)
+2026-07-02T09:09:11.531Z WARNING pyp2p-chat: [KeepAlive] PING timeout for grupo15r@CIC (ID: deff628e-0ac6-46cf-98b0-5eeec213b58b)
+2026-07-02T09:09:22.145Z INFO pyp2p-chat: [PUB] grupo6b@CIC: * quero um m
+2026-07-02T09:09:25.288Z INFO pyp2p-chat: [PeerServer] BYE recebido de Grupo2@CIC, motivo: Cliente está sendo desligado (shutdown)
+2026-07-02T09:09:25.288Z INFO pyp2p-chat: [PeerTable] Grupo2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:25.288Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo2@CIC
+2026-07-02T09:09:30.400Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo8.2@CIC
+2026-07-02T09:09:30.400Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo8.2@CIC
+2026-07-02T09:09:31.533Z WARNING pyp2p-chat: [KeepAlive] Error in sending PING to peer Grupo3.2@CIC. Error: [Errno 104] Connection reset by peer
+2026-07-02T09:09:33.086Z INFO pyp2p-chat: [CLI] Comando inválido, use: /peers, /msg, /pub, /conn, /rtt, /reconnect, /log, /quit
+2026-07-02T09:09:34.602Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo2.2@CIC
+2026-07-02T09:09:34.602Z INFO pyp2p-chat: [PeerServer] Grupo2.2@CIC ainda não conhecido. Registrando via handshake...
+2026-07-02T09:09:34.603Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo2.2@CIC
+2026-07-02T09:09:36.056Z INFO pyp2p-chat: [PeerServer] HELLO recebido de Grupo2@CIC
+2026-07-02T09:09:36.056Z INFO pyp2p-chat: [PeerServer] Handshake concluído com Grupo2@CIC
+2026-07-02T09:09:36.248Z INFO pyp2p-chat: [CLI] Quitting...
+2026-07-02T09:09:36.249Z INFO pyp2p-chat: [P2P] Iniciando Shutdown...
+2026-07-02T09:09:36.249Z INFO pyp2p-chat: [KeepAlive] Quitted (interval=30s)
+2026-07-02T09:09:36.249Z INFO pyp2p-chat: [Router] parando
+2026-07-02T09:09:37.251Z INFO pyp2p-chat: [PeerServer] server fechado.
+2026-07-02T09:09:37.251Z INFO pyp2p-chat: [PeerTable] grupo9.2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo9.2@CIC
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerTable] Grupo2.2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo2.2@CIC
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerTable] Grupo6Bruno@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo6Bruno@CIC
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerTable] grupo6b@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.252Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo6b@CIC
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerTable] Grupo6_Iago@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo6_Iago@CIC
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerTable] Caetano@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Caetano@CIC
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerTable] Grupo8@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo8@CIC
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerTable] grupo15r@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.253Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo15r@CIC
+2026-07-02T09:09:37.253Z ERROR pyp2p-chat: [P2P] Fatal error
+Traceback (most recent call last):
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 265, in _handle_peer_messages
+    raw_data = await reader.readline()
+  File "/usr/lib/python3.10/asyncio/streams.py", line 524, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib/python3.10/asyncio/streams.py", line 616, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib/python3.10/asyncio/streams.py", line 501, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/main.py", line 156, in initializer
+    await app.run()
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/p2p_client.py", line 147, in run
+    await self.shutdown()
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/p2p_client.py", line 158, in shutdown
+    await self.peer_server.stop(timeout=2.0)
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 67, in stop
+    await task
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 417, in _handle_peer_messages
+    self.connections.pop(remote_peer_id)
+KeyError: 'Grupo6_Iago@CIC'
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo4_1@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo4_1@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo13.2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo13.2@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] grupo6@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo6@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] grupo9@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo9@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo2@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo13@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo13@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo5@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo5@CIC
+2026-07-02T09:09:37.255Z INFO pyp2p-chat: [PeerTable] Grupo1@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo1@CIC
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerTable] Grupo8.2@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo8.2@CIC
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerTable] Grupo3@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com Grupo3@CIC
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerTable] grupo15P@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo15P@CIC
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerTable] grupo10@CIC -> DISCONNECTED (motivo: Encerramento do envio de mensagens)
+2026-07-02T09:09:37.256Z INFO pyp2p-chat: [PeerServer] Conexão encerrada com grupo10@CIC
+2026-07-02T09:09:37.256Z ERROR asyncio: unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-412' coro=<PeerServer._handle_peer_messages() done, defined at /home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py:262> exception=KeyError('Grupo5@CIC')>
+Traceback (most recent call last):
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 265, in _handle_peer_messages
+    raw_data = await reader.readline()
+  File "/usr/lib/python3.10/asyncio/streams.py", line 524, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib/python3.10/asyncio/streams.py", line 616, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib/python3.10/asyncio/streams.py", line 501, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/daniel/unb/redes_comp/p2p-chat/src/chat/peer_connection.py", line 417, in _handle_peer_messages
+    self.connections.pop(remote_peer_id)
+KeyError: 'Grupo5@CIC'
